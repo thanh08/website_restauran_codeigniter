@@ -1,0 +1,104 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+.sanphamdcchon {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+span.giacuoi {
+    font-size: 20px;
+    color: palevioletred;
+}
+
+span.giamgia {
+    font-size: 14px;
+}
+
+.phansanphamkhac {
+    margin-top: 30px;
+}
+
+h4.card-title {
+    font-size: 14px;
+}
+
+.card {
+    width: 200px !important;
+    text-align: center;
+}
+
+img.card-img-top {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+}
+
+button.btn.btn-info.dathang {
+    width: 100%;
+    background-color: palevioletred;
+    border-color: red;
+}
+
+button.btn.btn-info .dathang {
+    width: 100%;
+}
+
+.phan2-1 {
+    padding-top: 20px;
+}
+
+.order {
+    text-align: center;
+    width: 100%;
+}
+
+span.gia, .giamgia, .giacuoi {
+    float: right;
+}
+
+.phan2 {
+    border: 2px solid;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+form {padding-top: 30px;padding-left: 50px;}
+
+input[type="number"] {
+    width: 30px;
+}
+
+
+.textgiamgia {font-size: 12px;}
+
+.textgia {padding-top: 30px;}
+
+.phan1-3 {
+    text-align: end;
+}
+
+.text2 {
+    padding-top: 25px;
+}
+
+.tex1 {
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 32px;
+}
+
+.phan1-1 {
+    padding: 20px;
+}
+
+.phan1-1 img {
+    width: 80%;
+}
+
+.phan1 {
+    border: 2px solid;
+    border-radius: 7px;
+}
