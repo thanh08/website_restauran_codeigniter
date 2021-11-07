@@ -15,6 +15,9 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>news/showtintuc">Quản lý tin tuc</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>home/editdulieuheader">Quản lý thông tin</a>
+      </li>
     </ul>
   </div>
 </nav>

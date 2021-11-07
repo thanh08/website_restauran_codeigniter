@@ -635,10 +635,6 @@ nav.chonpage.justify-content-center {
 
 /* endcss_page blog */
 /* page_blogsingle */
-* {
-    margin: 0px;
-    padding: 0px;
-}
 
 .tagblogsingle {
     font-size: 15px;
@@ -658,6 +654,239 @@ nav.chonpage.justify-content-center {
     color: #777;
 }
 /* end_page_blogsingle */
+/* page_about */
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.food {
+    padding: 100px 0px;
+}
+
+.checkoutfood {
+    padding: 100px 0px;
+}
+
+.textrealeated {color: #333;font-size: 24px;padding: 40px;font-weight: bold;}
+
+.review div#myTabContent {
+    font-size: 14px;
+    color: #777;
+    line-height: 30px;
+    padding-top: 40px;
+}
+
+.review i.fa.fa-share-alt {
+    font-size: 22px;
+}
+
+.review button.btn.btn-warning {
+    border-radius: 0px;
+    color: #fff;
+    font-size: 14px;
+    margin: 25px 20px;
+}
+
+input.soluong {
+    width: 40px;
+    /* border-radius: 0px; */
+    /* border-color: white; */
+    margin: 0px 10px;
+}
+
+img.imgchinh {
+    padding: 10px;
+}
+
+.textcost.fontroboto {
+    color: #feb518;
+    font-size: 20px;
+}
+
+.textfood .cost {
+    background: #5b5b5b1a;
+    padding: 20px;
+}
+
+.textfood .describe {
+    font-size: 14px;
+    color: #777;
+    line-height: 2;
+    padding: 25px 0px;
+}
+
+span.textrev {
+    color: #acacac;
+    font-size: 14px;
+    border-left: solid;
+    padding-left: 15px;
+}
+
+span.rev {
+    color: #acacac;
+    font-size: 14px;
+    padding: 0px 15px;
+}
+
+.text01food {
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 15px;
+}
+
+.imgfood img {width: -webkit-fill-available;}
+
+.anhfoodnho {
+    padding: 10px;
+}
+
+.anhfoodnho img {width: 170px;height: 96px;}
+
+.menu2.page {
+    margin-bottom: 60px;
+}
+
+.local i {
+    padding-right: 10px;
+}
+
+p.card-text.local {
+    text-align: inherit;
+}
+
+.location i {margin-left: 0px;text-align: left;}
+
+.detailservice.location .card-body {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.imgmessage img {
+    width: 80%;
+}
+
+.messenge button.btn.btn-dark {
+    border-radius: 0px;
+    font-size: 14px;
+    width: -webkit-fill-available;
+}
+
+.textmess .text01.fontdacing {
+    font-size: 32px;
+    color: #feb518;
+    padding-top: 40px;
+}
+
+.textmess {
+    text-align: center;
+}
+
+
+.contact .text2contact {
+    display: inline;
+    padding: 5px 25px;
+    background: #feb518;
+    font-size: 14px;
+    float: right;
+}
+
+.contact .text2contact a {
+    text-decoration: none;
+    color: #333;
+}
+
+.text1contact {
+    color: #fff;
+    font-size: 30px;
+}
+
+.contact {
+    padding: 70px 0px;
+    background: #6e6e6e;
+}
+
+.textmess .text02 {
+    font-size: 24px;
+    color: #333;
+}
+
+.detailservice .card-text {
+    font-size: 14px;
+    text-align: center;
+}
+
+.ourservices h4.card-title {
+    text-align: center;
+    color: #333;
+}
+
+.ourservices img.card-img-top {
+    width: fit-content;
+    margin: auto;
+}
+
+.card-deck .card {
+    border: none;
+}
+
+.textservices .text02.fontroboto {
+    font-size: 24px;
+    padding: 10px 0px;
+    padding-bottom: 30px;
+}
+
+.textservices .text01.fontdacing {
+    color: #feb518;
+    font-size: 40px;
+}
+
+.ourservices {
+    padding: 120px 0px;
+}
+
+.infoabout {
+    padding: 100px 0px;
+}
+
+.imgabout {
+    box-sizing: border-box;
+}
+
+.imgabout .img1 {
+    padding: 0px 0px;
+}
+
+.text2infoabout {
+    color: #777;
+    font-size: 14px;
+}
+
+.text1infoabout {
+    font-size: 26px;
+    color: #333;
+    padding-top: 12px;
+    padding-bottom: 28px;
+}
+
+.textinfoabout {font-size: 30px;color: #feb518;}
+
+.textabout1 {
+    font-size: 28px;
+    color: #fff;
+}
+
+.about {
+    text-align: center;
+    padding: 200px 0px;
+    background: #5b5b5b;
+    box-sizing: border-box;
+
+}
+
+.textabout {color: #feb518;font-size: 32px;}
+
+/* end_page_about */
 
 /* Responsive mobile  */
 

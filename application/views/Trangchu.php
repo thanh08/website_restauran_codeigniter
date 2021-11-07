@@ -12,13 +12,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>fonts/font-awesome.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/1.css">
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?php echo base_url(); ?>js/jquery.js"></script>
-    <script src="<?php echo base_url(); ?>js/popper.min.js"></script>
-    <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>js/isotope.pkgd.js"></script>
-    <script src="<?php echo base_url(); ?>js/1.js"></script>
+    
 </head>
 <body>
 	 <!-- topheader -->
@@ -26,6 +20,7 @@
   <?php include('header.php') ?>
 
    <!-- end topheader -->
+   
    <!-- menuandlogo -->
   <div class="menuandlogo fontroboto">
     
@@ -41,19 +36,19 @@
               <a class="nav-link" href="<?php echo base_url() ?>">Home </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Menu</a>
+              <a class="nav-link" href="#">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url() ?>news">Blog</a>
+              <a class="nav-link" href="<?php echo base_url() ?>news">New</a>
             </li>
-            <li class="nav-item">
+           <!--  <li class="nav-item">
               <a class="nav-link" href="#">Shop</a>
-            </li>
+            </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="<?php echo base_url(); ?>contact">Contact Us</a>
             </li>
             <li class="nav-item nutdb">
               <a class="nav-link btn-warning nutdatban" href="#">Reservation</a>
@@ -812,6 +807,12 @@
      </div>
    </div>
    <!-- endfooter1 -->
-   
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="<?php echo base_url(); ?>js/jquery.js"></script>
+    <script src="<?php echo base_url(); ?>js/popper.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/isotope.pkgd.js"></script>
+    <script src="<?php echo base_url(); ?>js/1.js"></script>
 </body>
 </html>

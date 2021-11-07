@@ -7,7 +7,19 @@
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>css_server/bootstrap.css">
 </head>
 <body>
+	<?php if ($this->session->has_userdata('taikhoan') && $this->session->has_userdata('matkhau') ){  ?>
+
+		<div class="alert alert-primary" style="margin-bottom: 0px;" role="alert">
+			<strong><?= $this->session->userdata('taikhoan'); ?></strong> đã đăng nhập ! <span><a href="<?php echo base_url() ?>Admin/dangxuat">Đăng xuất</a></span>
+		</div>
+
+	 	<?php } else { redirect('../admin','refresh') ?>
+
+	 	<?php } ?>
+	<?php require('adminmenu.php') ?>
+
 	<div class="container">
+
 		<div class="row">
 			<div class="col-sm-8 offset-sm-2">
 				<form action="<?php echo base_url(); ?>Home/updateheader" method="post" enctype="multipart/form-data">

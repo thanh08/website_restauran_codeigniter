@@ -18,7 +18,7 @@
 </head>
 <body>
 <!-- topheader -->
-<div class="topheader">
+<!-- <div class="topheader">
     <div class="container">
         <div class="row">
             <div class="col-sm-7 col-md-7">
@@ -39,7 +39,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+  <?php include('header.php') ?>
+
 <!-- end topheader -->
 <!-- menuandlogo -->
 <div class="menuandlogo fontroboto">
@@ -56,19 +58,19 @@
                         <a class="nav-link" href="<?php echo base_url() ?>">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Menu</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo base_url() ?>news">Blog</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>news">New</a>
                     </li>
-                    <li class="nav-item">
+                   <!--  <li class="nav-item">
                         <a class="nav-link" href="#">Shop</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>contact">Contact Us</a>
                     </li>
                     <li class="nav-item nutdb">
                         <a class="nav-link btn-warning nutdatban" href="#">Reservation</a>

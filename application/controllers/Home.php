@@ -26,7 +26,7 @@ class Home extends CI_Controller {
 	  // var_dump($ketqua);
 	  // echo "</pre>";
 	  $this->load->view('Trangchu', $ketqua, FALSE);
-	  $this->load->view('header', $ketqua, FALSE);
+	  //$this->load->view('header', $ketqua, FALSE);
 
 
 
