@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Danh muc</title>
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>css_server/bootstrap.css">
-	
+
 </head>
 <body>
 	
@@ -25,7 +25,7 @@
 			<div class="col-sm-6">
 				<!-- <form action="<?php echo base_url(); ?>News/addDanhmuc" method="post" enctype="multipart/form-data" > -->
 					<fieldset class="form-group">
-						<label for="formGroupExampleInput">Thêm danh mục</label>
+						<label for="formGroupExampleInput">Thêm danh mục tin tức</label>
 						<input type="text" name="danhmuc" id="danhmuc" class="form-control" id="formGroupExampleInput" placeholder="Nhập tên danh mục">
 					</fieldset>
 					<fieldset class="form-group">
@@ -35,7 +35,7 @@
 			</div>
 			<div class="col-sm-6 them">
 				<div class="card text-white bg-success">
-					<div class="card-header">Danh sach danh mục</div>
+					<div class="card-header">Danh sách danh mục tin tức</div>
 				</div>
 
 
@@ -50,7 +50,7 @@
 				  </div>
 				  <div class="khoiedit d-none">
 				  	<input type="hidden" value="<?= $value['id'] ?>">
-				  	<input type="text" name="danhmucsua" class="" value="<?= $value['tendanhmuc'] ?>">
+				  	<input type="text" name="danhmucsua" value="<?= $value['tendanhmuc'] ?>">
 				  	<a data-href="" class="btn-success p-1 float-right luuedit">Lưu</a>
 
 				  </div>

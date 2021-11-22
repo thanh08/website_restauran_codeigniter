@@ -1,0 +1,33 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+li.nav-item {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 17px;
+}
+li.nav-item:hover ul{
+    opacity:1;
+    visibility:visible;
+}
+
+li.nav-item ul {position: absolute;opacity: 0;visibility: hidden;transition: 0.4s;}
+
+li.nav-item ul li {
+    list-style: none;
+    width: 150px;
+    font-size: 15px;
+    padding: 5px;
+    background-color: #28a745b5;
+    text-decoration: none;
+    color: #fff;
+}
+
+li.nav-item ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+}

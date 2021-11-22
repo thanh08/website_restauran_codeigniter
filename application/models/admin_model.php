@@ -9,12 +9,11 @@ class admin_model extends CI_Model {
 		parent::__construct();
 		
 	}
-	function insertdulieuuser($ten,$taikhoan,$sdt,$diachi,$email,$matkhau){
+	function insertdulieuuser($ten,$taikhoan,$sdt,$email,$matkhau){
 		$dulieu = [
 		    'ten' =>$ten,
 		    'taikhoan'=>$taikhoan,
 		    'sdt'=>$sdt,
-		    'diachi'=>$diachi,
 		    'email'=>$email,
 		    'matkhau'=>$matkhau,
 
@@ -35,6 +34,44 @@ class admin_model extends CI_Model {
 		// var_dump($dulieu);
 		// echo "</pre>";
 		
+
+		
+	}
+	function laydulieuadmin()
+	{
+		$this->db->select('*');
+		$this->db->from('taikhoankhachhang');
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+
+
+	}
+	function luudulieu($id,$ten,$taikhoan,$sdt,$email,$matkhau)
+	{
+		$dulieu = [
+			'id'=>$id,
+		    'ten'=>$ten,
+		    'taikhoan'=>$taikhoan,
+		    'sdt'=>$sdt,
+		    'email'=>$email,
+		    'matkhau'=>$matkhau 
+		];
+		$this->db->where('id', $id);
+		$this->db->update('taikhoankhachhang', $dulieu);
+		if ($this->db->affected_rows() > 0) {
+			echo 'thanhcong';
+		}
+		else{
+			echo 'thatbai';
+		}
+		
+	}
+	function xoaadmin($id)
+	{
+		$this->db->where('id', $id);
+		$dulieu=$this->db->delete('taikhoankhachhang');
+		return $dulieu;
 
 		
 	}

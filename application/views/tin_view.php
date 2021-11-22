@@ -95,15 +95,20 @@
 
 	</div>
 	<script>
-		var editor = CKEDITOR.replace( 'noidungtin' );
-      CKFinder.setupCKEditor( editor );
-
-	CKEDITOR.replace( 'noidungtin', {
+		var editor = CKEDITOR.replace( 'noidungtin',{
     filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
     filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
     filebrowserWindowWidth: '1000',
     filebrowserWindowHeight: '700'
 } );
+      CKFinder.setupCKEditor( editor );
+
+// 	CKEDITOR.replace( 'noidungtin', {
+//     filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+//     filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+//     filebrowserWindowWidth: '1000',
+//     filebrowserWindowHeight: '700'
+// } );
 
 	</script>
 </body>

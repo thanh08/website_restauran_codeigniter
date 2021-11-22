@@ -35,7 +35,7 @@ class Admin extends CI_Controller {
          	);
          	
          	$this->session->set_userdata($dulieutaikhoan);
-         	redirect('../sline','refresh');
+         	redirect('../home/showbook','refresh');
 
          	
 
@@ -56,16 +56,49 @@ class Admin extends CI_Controller {
 		$ten=$this->input->post('ten');
 		$taikhoan=$this->input->post('taikhoan');
 		$sdt=$this->input->post('sdt');
-		$diachi=$this->input->post('diachi');
 		$email=$this->input->post('email');
 		$matkhau=$this->input->post('matkhau');
 		$matkhau=md5($matkhau);
-		if ($this->admin_model->insertdulieuuser($ten,$taikhoan,$sdt,$diachi,$email,$matkhau)) {
+		if ($this->admin_model->insertdulieuuser($ten,$taikhoan,$sdt,$email,$matkhau)) {
 			$this->load->view('success_taikhoan');
 		}
 
 		
 	}
+	function getqladmin()
+	{
+		$dulieu=$this->admin_model->laydulieuadmin();
+		$dulieu=json_encode($dulieu);
+		echo $dulieu;
+		// echo "<pre>";
+		// print_r ($dulieu);
+		// echo "</pre>";
+	}
+	function showadmin()
+	{
+		$this->load->view('quanly_admin.php');
+		
+	}
+	function luuthaydoiadmin()
+	{
+		$id=$this->input->post('id');
+		$ten=$this->input->post('ten');
+		$taikhoan=$this->input->post('taikhoan');
+		$sdt=$this->input->post('sdt');
+		$email=$this->input->post('email');
+		$matkhau=$this->input->post('matkhau');
+		$matkhau=md5($matkhau);
+                $this->admin_model->luudulieu($id,$ten,$taikhoan,$sdt,$email,$matkhau);
+		
+	}
+	function xoataikhoan($id)
+	{
+		if ($this->admin_model->xoaadmin($id)) {
+			$this->load->view('success_taikhoan');
+		}
+			
+	}
+
 
 }
 

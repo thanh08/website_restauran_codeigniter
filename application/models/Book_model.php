@@ -24,6 +24,26 @@ class Book_model extends CI_Model {
 		return $this->db->insert('customer_book', $dulieu);
 
 	}
+	function showdatabook()
+	{
+		$this->db->select('*');
+		$dulieu = $this->db->get('customer_book');
+		$dulieu = $dulieu->result_array();
+		return $dulieu;
+		// echo "<pre>";
+		// var_dump($dulieu);
+		// echo "</pre>";
+	}
+	function comfirm_book($id,$tinhtrang)
+	{
+		$dulieu = [
+		    'id' =>$id,
+		    'tinhtrang' =>$tinhtrang  
+		];
+		$this->db->where('id', $id);
+		$dulieu = $this->db->update('customer_book', $dulieu);
+		return $dulieu;
+	}
 	
 
 }

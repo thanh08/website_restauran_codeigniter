@@ -39,10 +39,10 @@
               <a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Menu</a>
+              <a class="nav-link" href="<?php echo base_url(); ?>menu">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url() ?>news">New</a>
+              <a class="nav-link" href="<?php echo base_url() ?>news">News</a>
             </li>
            <!--  <li class="nav-item">
               <a class="nav-link" href="#">Shop</a>

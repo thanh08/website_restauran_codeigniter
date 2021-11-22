@@ -3,6 +3,26 @@
     padding: 0px;
 }
 
+li.nav-item {
+    position: relative;
+    z-index: 1;
+}
+li.nav-item:hover ul{
+    opacity:1;
+    visibility:visible;
+}
+
+li.nav-item ul {position: absolute;opacity: 0;visibility: hidden;transition: 0.4s;}
+
+li.nav-item ul li {
+    list-style: none;
+    width: 150px;
+    font-size: 15px;
+    padding: 5px;
+    background-color: #28a7454d;
+    text-decoration: none;
+}
+
 .sanphamdcchon {
     display: flex;
     flex-wrap: wrap;
@@ -102,3 +122,5 @@ input[type="number"] {
     border: 2px solid;
     border-radius: 7px;
 }
+.hidetext { -webkit-text-security: disc; /* Default */ }
+

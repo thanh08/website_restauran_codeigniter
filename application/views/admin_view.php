@@ -47,7 +47,7 @@
 							<input type="submit" class="btn-primary btn-block" value="Đăng nhập">
 						</fieldset>
 					</form>
-					<div class="dangki mt-5">Nếu bạn không có tài khoản thì có thể <span><a href="<?php echo base_url() ?>Admin/showdangki">Đăng kí</a></span> tại đây!</div>
+					<div class="dangki mt-5">Nếu bạn quên mật khẩu hoặc tài khoản thì có thể <span><a href="#">Nhấp</a></span> tại đây để lấy lại!</div>
 				</div>
 		</div>
 	</div>

@@ -121,6 +121,34 @@ class Home extends CI_Controller {
 	   	$this->load->view('thanhcongbook');
 	   }
 	}
+	function showbook()
+	{
+		$this->load->model('Book_model');
+		$dulieu=$this->Book_model->showdatabook();
+		$dulieu = [
+		    'dulieubook' =>$dulieu 
+		];
+		$this->load->view('book_view',$dulieu);
+
+		// echo "<pre>";
+		// var_dump($dulieu['dulieubook'][0]);
+		// echo "</pre>";
+		
+	}
+	function comfirm_book($id,$tinhtrang)
+	{
+		if ($tinhtrang==0) {
+			$tinhtrang=1;
+		}
+
+		$this->load->model('Book_model');
+		if ($this->Book_model->comfirm_book($id,$tinhtrang)) {
+	   	$this->load->view('xacnhanbook');
+	   }
+
+
+		
+	}
 
 }
 

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Thêm sline</title>
+	<title>Thêm slice</title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>/fonts/font-awesome.css">
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>css_server/bootstrap.min.css">
 	<script type="text/javascript" src="<?php echo base_url(); ?>css_server/jquery.min.js"></script>
@@ -16,7 +16,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 text-sm-center ">
-				<h3>Thêm sline</h3>
+				<h3>Thêm slice</h3>
 				<a href="<?php echo base_url(); ?>sline" class="btn-warning btn-lg float-left"><i class="fa fa-arrow-left" style="width: 20px !important;"></i>Quay lại</a>
 			</div>
 		</div>
@@ -27,7 +27,7 @@
 
 					<?php foreach ($dulieusline as $key => $value): ?>
 						<?php $dem++ ?>
-						<h3>Sline <?= $dem ?></h3>
+						<h3>Slice <?= $dem ?></h3>
 					<fieldset class="form-group">
 						<label for="formGroupExampleInput">Title</label>
 						<input type="text" name="title[]" class="form-control" id="formGroupExampleInput" placeholder="Vui lòng nhập nội dung vào" value="<?= $value['title'] ?>">
@@ -45,7 +45,7 @@
 						<input type="text" name="textbuton[]" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập nội dung vào" value="<?= $value['textbuton'] ?>">
 					</fieldset>
 					<fieldset class="form-group">
-						<label for="formGroupExampleInput2">Image Sline</label>
+						<label for="formGroupExampleInput2">Image Slice</label>
 						<img src="<?= $value['image'] ?>" alt="" width="50%" class="img-thumbnail mb-3">
 						<input type="hidden" value="<?= $value['image'] ?>" name="image_old[]"  >
 						<input type="file" name="imagesline[]" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập nội dung vào" >

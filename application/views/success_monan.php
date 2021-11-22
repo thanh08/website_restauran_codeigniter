@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="refresh" content="2,url=<?php echo base_url(); ?>Admin/showadmin">
+	<meta http-equiv="refresh" content="2,url=<?php echo base_url(); ?>product/showqlsanpham">
 	<title>Success</title>
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>css_server/bootstrap.min.css">
 	<script type="text/javascript" src="<?php echo base_url(); ?>css_server/jquery.min.js"></script>

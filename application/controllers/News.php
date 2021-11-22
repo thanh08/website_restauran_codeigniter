@@ -280,11 +280,17 @@ class News extends CI_Controller {
 		$dulieu=$this->danhmuc_model->laysotin($trang,$sotrang1tin);
 		$dulieutrang=$this->danhmuc_model->laysotrang();
 		$dulieucuadanhmuc=$this->danhmuc_model->getdanhmuc();
+		$dulieu1 =$this->updatesline_model->getdulieuheader();
+        $dulieuheader=json_decode($dulieu1,true);
+
+
 
 		$dulieu = [
 		    'dulieuloadnews' => $dulieu,
 		    'dulieusotrang' =>$dulieutrang,
-		    'dulieucuadanhmuc' =>$dulieucuadanhmuc
+		    'dulieucuadanhmuc' =>$dulieucuadanhmuc,
+		    'dulieuheader'=>$dulieuheader
+
 
 		];
 		$this->load->view('blognews', $dulieu, FALSE);
@@ -321,10 +327,13 @@ class News extends CI_Controller {
 		$dulieu=$this->danhmuc_model->laydulieutintheoiddanhmuc($id);
 		$dulieutrang=$this->danhmuc_model->laysotrangtheoiddanhmuc($id);
 		$dulieucuadanhmuc=$this->danhmuc_model->getdanhmuc();
+		$dulieu1 =$this->updatesline_model->getdulieuheader();
+        $dulieuheader=json_decode($dulieu1,true);
 		$dulieu = [
 		    'dulieuloadnews' => $dulieu,
 		    'dulieusotrang' =>$dulieutrang,
-		    'dulieucuadanhmuc' =>$dulieucuadanhmuc
+		    'dulieucuadanhmuc' =>$dulieucuadanhmuc,
+		    'dulieuheader'=>$dulieuheader
 		];
 		$this->load->view('blognews', $dulieu, FALSE);
 		// echo "<pre>";

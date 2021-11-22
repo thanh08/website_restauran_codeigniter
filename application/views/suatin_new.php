@@ -9,6 +9,17 @@
 	<script src="<?php echo base_url() ?>ckeditor/ckfinder/ckfinder.js"></script>
 </head>
 <body>
+	<?php if ($this->session->has_userdata('taikhoan') && $this->session->has_userdata('matkhau') ){  ?>
+
+		<div class="alert alert-primary" style="margin-bottom: 0px;" role="alert">
+			<strong><?= $this->session->userdata('taikhoan'); ?></strong> đã đăng nhập ! <span><a href="<?php echo base_url() ?>Admin/dangxuat">Đăng xuất</a></span>
+		</div>
+
+	 	<?php } else { redirect('../admin','refresh') ?>
+
+	 	<?php } ?>
+	 	
+	<?php require('adminmenu.php') ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 text-center">

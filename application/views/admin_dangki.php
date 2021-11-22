@@ -7,6 +7,18 @@
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>css_server/bootstrap.css">
 </head>
 <body>
+	<?php if ($this->session->has_userdata('taikhoan') && $this->session->has_userdata('matkhau') ){  ?>
+
+		<div class="alert alert-primary" style="margin-bottom: 0px;" role="alert">
+			<strong><?= $this->session->userdata('taikhoan'); ?></strong> đã đăng nhập ! <span><a href="<?php echo base_url() ?>Admin/dangxuat">Đăng xuất</a></span>
+		</div>
+
+	 	<?php } else { redirect('../admin','refresh') ?>
+
+	 	<?php } ?>
+
+
+	<?php require('adminmenu.php') ?>
 	<div class="container">
 		<div class="row mt-5">
 			<div class="col-sm-12">
@@ -30,10 +42,6 @@
 							<input type="number" name="sdt" class="form-control" id="formGroupExampleInput" placeholder="Nhập nhập tài khoản">
 						</fieldset>
 						<fieldset class="form-group">
-							<label for="formGroupExampleInput">Địa chỉ</label>
-							<input type="text" name="diachi" class="form-control" id="formGroupExampleInput" placeholder="Nhập nhập tài khoản">
-						</fieldset>
-						<fieldset class="form-group">
 							<label for="formGroupExampleInput">Email</label>
 							<input type="Email" name="email" class="form-control" id="formGroupExampleInput" placeholder="Nhập nhập tài khoản">
 						</fieldset>
@@ -45,7 +53,6 @@
 							<input type="submit" class="btn-primary btn-block" value="Đăng kí">
 						</fieldset>
 					</form>
-					<div class="dangki mt-5">Nếu bạn đã có tài khoản thì có thể <span><a href="<?php echo base_url() ?>Admin">Đăng nhập</a></span> tại đây!</div>
 				</div>
 		</div>
 	</div>

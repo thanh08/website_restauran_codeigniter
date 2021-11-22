@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Chỉnh sửa header</title>
+	<title>Thông tin về nhà hàng</title>
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>css_server/bootstrap.css">
 </head>
 <body>
@@ -22,6 +22,7 @@
 
 		<div class="row">
 			<div class="col-sm-8 offset-sm-2">
+				<h3 class="text-sm-center">Thông tin về nhà hàng</h3>
 				<form action="<?php echo base_url(); ?>Home/updateheader" method="post" enctype="multipart/form-data">
 					<?php foreach ($dulieuheader as $key => $value): ?>
 						<?php 
