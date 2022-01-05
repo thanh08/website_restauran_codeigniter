@@ -33,13 +33,36 @@
 						<label for="formGroupExampleInput">Tiêu đề món ăn</label>
 						<input type="text" name="tieude" class="form-control" id="formGroupExampleInput" placeholder="">
 					</fieldset>
-					<fieldset class="form-group">
 						<label for="formGroupExampleInput">Mô tả món ăn</label>
+					<fieldset class="form-group card p-4">
 						<input type="text" name="mota" class="form-control" id="formGroupExampleInput" placeholder="">
+						<select class="form-control mt-2" name="themnew">
+
+							<option value="1">Món mới</option>
+							<option value="0">Món cũ</option>
+
+						</select>
 					</fieldset>
 					<fieldset class="form-group">
 						<label for="formGroupExampleInput">Ảnh của món ăn</label>
 						<input type="file" name="hinhanh" class="form-control">
+					</fieldset>
+						<label for="formGroupExampleInput2">Ảnh list món ăn</label>
+
+					<fieldset class="form-group card p-4">
+						<label for="formGroupExampleInput2">Ảnh list 1</label>
+
+						<input type="hidden" name="anhlistcu[]" value="">
+						<input type="file" name="hinhanhlist[]"class="form-control" id="formGroupExampleInput2" >
+						<label for="formGroupExampleInput2">Ảnh list 2</label>
+
+						<input type="hidden" name="anhlistcu[]" value="">
+						<input type="file" name="hinhanhlist[]"class="form-control" id="formGroupExampleInput2" >
+						<label for="formGroupExampleInput2">Ảnh list 3</label>
+
+						<input type="hidden" name="anhlistcu[]" value="">
+						<input type="file" name="hinhanhlist[]"class="form-control" id="formGroupExampleInput2" >
+
 					</fieldset>
 					<fieldset class="form-group">
 						<label for="formGroupExampleInput">Giá gốc</label>
@@ -47,10 +70,7 @@
 						  <div class="input-group-prepend">
 						    <span class="input-group-text">VND</span>
 						  </div>
-						  <input type="text" name="giagoc" class="form-control" aria-label="Amount (to the nearest dollar)">
-						  <div class="input-group-append">
-						    <span class="input-group-text">.00</span>
-						  </div>
+						  <input type="text" name="giagoc" class="form-control" aria-label="Amount (to the nearest dollar)">						 
 						</div>
 					</fieldset>
 					<fieldset class="form-group">
@@ -60,9 +80,6 @@
 						    <span class="input-group-text">VND</span>
 						  </div>
 						  <input type="text" name="giasaugiam" class="form-control" aria-label="Amount (to the nearest dollar)">
-						  <div class="input-group-append">
-						    <span class="input-group-text">.00</span>
-						  </div>
 						</div>
 					</fieldset>
 					<fieldset class="form-group" >
@@ -82,23 +99,29 @@
 				</form>
 			</div><!--  end thêm món -->
 
-		   <div class="col-sm-6">
+		   <div class="col-sm-6" ng-controller="controller4">
 			<h2 class="text-center">Chỉnh sửa món ăn</h2>
-			<div class="card-deck">
+			<div class="card-deck" >
 					
-				  <div class="card mt-2" style="flex: none; width: 200px;">
-				    <img class="card-img-top" src="" alt="Card image cap">
+				  <div class="card mt-2" style="flex: none; width: 200px;" ng-repeat=" motmonan in monan ">
+				    <img class="card-img-top" src="{{motmonan.image_link}}" alt="Card image cap">
 				    <div class="card-body">
-				      <h5 class="card-title">Tiêu đề món ăn</h5>
-				      <p class="card-text" style="font-size: 14px;font-style: italic;">thông tin</p>
+				      <h5 class="card-title">{{motmonan.name}}</h5>
+				      <p class="card-text" style="font-size: 14px;font-style: italic;">{{motmonan.description_short}}</p>
 				    </div>
 				    <div class="card-footer">
-				      <small class="text-muted">thông tin</small>
+				    	<span class="text-muted">Giá gốc:</span>
+				      <small class="text-muted">{{motmonan.price}} VNĐ</small>
 				    </div>
 				    <div class="card-footer">
-				    	<a href="" class="btn-warning btn-lg">Sửa</a>
+				    	<span class="text-muted">Sau giảm:</span>
+				      <small class="text-muted">{{motmonan.discount}} VNĐ</small>
+				    </div>
 
-				    	<a href="" class="btn-danger btn-lg">xóa</a>
+				    <div class="card-footer">
+				    	<a href="<?php echo base_url(); ?>product/laythongtinmonan/{{motmonan.id}}" class="btn-warning btn-lg">Sửa</a>
+
+				    	<a href="<?php echo base_url(); ?>product/xoathongtinmonan/{{motmonan.id}}" class="btn-danger btn-lg">xóa</a>
 
 				    </div>
 

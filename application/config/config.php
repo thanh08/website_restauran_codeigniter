@@ -158,7 +158,7 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@\=';
 
 /*
 |--------------------------------------------------------------------------
@@ -521,3 +521,7 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+$config['stripe_key'] = 'pk_test_51KBbLsA2wf9TPkHJRr2jzWtScAJoRqMlIWTQGlIbFfTZh5npmRXr3xQgBVWxEXysUH7xW91W0VgPNowqOuOSManf00nPVbo3Vk';
+
+$config['stripe_secret'] = 'sk_test_51KBbLsA2wf9TPkHJGCNATuRHz48ABYSAJ6VfEwZTlQlqzK6UVsQdq0PvmkeooY2vCMk8dWKHHV7GlqKKyy6uNhzB00tg1JK7ja';

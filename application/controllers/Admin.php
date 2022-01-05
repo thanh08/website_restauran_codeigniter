@@ -17,7 +17,7 @@ class Admin extends CI_Controller {
 	{
 		$taikhoan=$this->input->post('taikhoan');
 		$matkhau=$this->input->post('matkhau');
-		$matkhau=md5($matkhau);
+		//$matkhau=md5($matkhau);
 		$dulieu=$this->admin_model->getdatataikhoan($taikhoan,$matkhau);
 		//var_dump($dulieu);
         if ($dulieu == null ) {
@@ -35,7 +35,7 @@ class Admin extends CI_Controller {
          	);
          	
          	$this->session->set_userdata($dulieutaikhoan);
-         	redirect('../home/showbook','refresh');
+         	redirect('../dash1','refresh');
 
          	
 
@@ -58,7 +58,7 @@ class Admin extends CI_Controller {
 		$sdt=$this->input->post('sdt');
 		$email=$this->input->post('email');
 		$matkhau=$this->input->post('matkhau');
-		$matkhau=md5($matkhau);
+		//$matkhau=md5($matkhau);
 		if ($this->admin_model->insertdulieuuser($ten,$taikhoan,$sdt,$email,$matkhau)) {
 			$this->load->view('success_taikhoan');
 		}
@@ -86,9 +86,7 @@ class Admin extends CI_Controller {
 		$taikhoan=$this->input->post('taikhoan');
 		$sdt=$this->input->post('sdt');
 		$email=$this->input->post('email');
-		$matkhau=$this->input->post('matkhau');
-		$matkhau=md5($matkhau);
-                $this->admin_model->luudulieu($id,$ten,$taikhoan,$sdt,$email,$matkhau);
+                $this->admin_model->luudulieu($id,$ten,$taikhoan,$sdt,$email);
 		
 	}
 	function xoataikhoan($id)

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Thêm slice</title>
+	<title>Thêm slide</title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>/fonts/font-awesome.css">
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>css_server/bootstrap.min.css">
 	<script type="text/javascript" src="<?php echo base_url(); ?>css_server/jquery.min.js"></script>
@@ -30,8 +30,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 text-sm-center ">
-				<h3>Thêm slice</h3>
-				<a href="<?php echo base_url(); ?>sline/showsline" class="btn-warning btn-lg float-right">Chỉnh sửa slice <i class="fa fa-arrow-right" style="width: 20px !important;"></i> </a>
+				<h3>Thêm slide</h3>
+				<a href="<?php echo base_url(); ?>sline/showsline" class="btn-warning btn-lg float-right">Chỉnh sửa slide <i class="fa fa-arrow-right" style="width: 20px !important;"></i> </a>
 			</div>
 		</div>
 		<div class="row">
@@ -54,7 +54,7 @@
 						<input type="text" name="textbuton" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập nội dung vào">
 					</fieldset>
 					<fieldset class="form-group">
-						<label for="formGroupExampleInput2">Image Slice</label>
+						<label for="formGroupExampleInput2">Image Slide</label>
 						<input type="file" name="imagesline" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập nội dung vào">
 					</fieldset>
 					<input type="submit" value="lưu lại dữ liệu" class="btn-success btn-block">

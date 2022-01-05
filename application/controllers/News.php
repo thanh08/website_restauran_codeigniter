@@ -8,6 +8,7 @@ class News extends CI_Controller {
 		$this->load->model('danhmuc_model');
 	   $this->load->model('updatesline_model');
 
+
 	}
 
 	public function index()
@@ -18,15 +19,18 @@ class News extends CI_Controller {
 		$dulieucuadanhmuc=$this->danhmuc_model->getdanhmuc();
 	    $dulieu1 =$this->updatesline_model->getdulieuheader();
         $dulieuheader=json_decode($dulieu1,true);
+	  $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
+
 
 
 		$dulieu = [
 		    'dulieuloadnews' => $dulieu,
 		    'dulieusotrang' =>$dulieutrang,
 		    'dulieucuadanhmuc' =>$dulieucuadanhmuc,
-		    'dulieuheader' => $dulieuheader
+		    'dulieuheader' => $dulieuheader,
+		    'dulieunewstrangchu' => $dulieutintuctrangchu
+		    
 		];
-	    //$this->load->view('header', $dulieu, FALSE);
 		$this->load->view('blognews', $dulieu, FALSE);
 
 

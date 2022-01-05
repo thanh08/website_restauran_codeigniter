@@ -13,7 +13,14 @@
 .fontdacing {
     font-family: 'Dancing Script', cursive;
 }
-
+.kohienthi{
+    visibility: hidden;
+    opacity: 0;
+}
+.cohienthi{
+    visibility: visible;
+    opacity: 1;
+}
 
 /* topheader */
 
@@ -61,7 +68,6 @@
 
 a.nav-link.btn-warning.nutdatban {
     padding: 12px 20px;
-    transform: translateY(-4px);
     box-sizing: border-box;
 }
 
@@ -158,6 +164,9 @@ p.textlargeservice a {
 
 .row.mot {
     width: inherit;
+    height: 520px !important;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .optionmenu.fontroboto {
@@ -187,6 +196,7 @@ p.textlargeservice a {
     display: flex;
     flex-wrap: wrap;
     margin: 20px 0px;
+    height: 90px;
 }
 
 .contentmenu2 .textcontent1 {
@@ -215,7 +225,6 @@ p.textlargeservice a {
     display: flex;
     justify-content: space-between;
     border-bottom: 3px dotted #999999;
-    margin-top: 15px;
 }
 
 .onemeal .imgmeal img {
@@ -677,7 +686,7 @@ i.fa.fa-cart-plus.giohang {font-size: 18px;}
 }
 
 .checkoutfood {
-    padding: 100px 0px;
+    padding: 100px 10px;
 }
 
 .textrealeated {color: #333;font-size: 24px;padding: 40px;font-weight: bold;}
@@ -959,6 +968,11 @@ p.card-text.local {
         margin: 0px;
         padding: 0px;
     }
+    h6.my-0 {
+    width: 180px !important;
+    font-size: 15px;
+}
+
 
 .contentofblog .textourblog.fontdacing {font-size: 30px;}
 

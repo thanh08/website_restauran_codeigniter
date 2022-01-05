@@ -40,36 +40,28 @@
 				<table class="table">
   <thead class="thead-light">
     <tr>
-      <th scope="col">Stt</th>
       <th scope="col">Ten</th>
       <th scope="col">Tài khoản</th>
       <th scope="col">Số điện thoại</th>
       <th scope="col">Email</th>
-      <th scope="col">Mật khẩu</th>
-      <!-- <th scope="col">Ngày tạo</th> -->
       <th scope="col">Thay đổi</th>
 
     </tr>
-  </thead>
+  </thead >
   <tbody ng-repeat="mottk in taikhoan" ng-init="mottk.hienthi=true">
     <tr ng-show="mottk.hienthi">
-      <th scope="row">#</th>
       <td>{{mottk.ten}}</td>
       <td>{{mottk.taikhoan}}</td>
       <td>{{mottk.sdt}}</td>
       <td>{{mottk.email}}</td>
-      <td class="hidetext">{{mottk.matkhau}}</td>
-      <!-- <td>{{mottk.ngaytao | date:'yyyy-MM-dd'}}</td> -->
       <td><button class="btn-warning" ng-click="suataikhoan(mottk)">Sửa</button><a class="btn-danger ml-1 p-1" href="<?php echo base_url(); ?>/admin/xoataikhoan/{{mottk.id}}">Xóa</a></td>
 
     </tr>
     <tr ng-show="!mottk.hienthi">
-      <th scope="row">#</th>
       <td><input type="text" ng-model="mottk.ten" value="{{mottk.ten}}"></td>
       <td><input type="text" ng-model="mottk.taikhoan" value="{{mottk.taikhoan}}"></td>
       <td><input type="text" ng-model="mottk.sdt"  value="{{mottk.sdt}}" ></td>
       <td><input type="email" ng-model="mottk.email"  value="{{mottk.email}}" ></td>
-      <td><input type="password" ng-model="mottk.matkhau"  value="{{mottk.matkhau}}"></td>
       <input type="hidden" ng-model="mottk.ngaytao">
       <input type="hidden" ng-model="mottk.id">
       <td ><button class="btn-success" style="width: 100px;"  ng-click="luutaikhoan(mottk)">Lưu</button></td>

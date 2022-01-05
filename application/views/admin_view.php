@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Đăng nhập</title>
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>css_server/bootstrap.css">
 </head>
@@ -10,13 +10,13 @@
 	
 	<div class="container">
 		<div class="row mt-5">
-			<div class="col-sm-12">
-			<h4 class="text-sm-center">Đăng nhập tài khoản</h4>
+			<div class="col-sm-12 ">
+			<h4 class="text-center">Đăng nhập tài khoản</h4>
 
 			</div>
 		</div>
 			<div class="row">
-				<div class="col-sm-6 offset-3 mt-5">
+				<div class="col-sm-6 offset-sm-3 col-6 offset-3 mt-5">
 					<form action="<?php echo base_url(); ?>Admin/dangnhaptaikhoan" method="post" enctype="multipart/form-data" >
 						<?php 
 							if ($this->session->has_userdata('notice')) { ?>

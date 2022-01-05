@@ -19,12 +19,12 @@ class admin_model extends CI_Model {
 
 
 		];
-		return $this->db->insert('taikhoankhachhang', $dulieu);
+		return $this->db->insert('taikhoanadmin', $dulieu);
 	}
 	function getdatataikhoan($taikhoan,$matkhau)
 	{
-		$this->db->select('taikhoankhachhang.taikhoan,taikhoankhachhang.matkhau');
-		$this->db->from('taikhoankhachhang');
+		$this->db->select('taikhoanadmin.taikhoan,taikhoanadmin.matkhau');
+		$this->db->from('taikhoanadmin');
 		$this->db->where('taikhoan', $taikhoan);
 	    $this->db->where('matkhau ', $matkhau);
 		$dulieu=$this->db->get();
@@ -40,25 +40,24 @@ class admin_model extends CI_Model {
 	function laydulieuadmin()
 	{
 		$this->db->select('*');
-		$this->db->from('taikhoankhachhang');
+		$this->db->from('taikhoanadmin');
 		$dulieu=$this->db->get();
 		$dulieu=$dulieu->result_array();
 		return $dulieu;
 
 
 	}
-	function luudulieu($id,$ten,$taikhoan,$sdt,$email,$matkhau)
+	function luudulieu($id,$ten,$taikhoan,$sdt,$email)
 	{
 		$dulieu = [
 			'id'=>$id,
 		    'ten'=>$ten,
 		    'taikhoan'=>$taikhoan,
 		    'sdt'=>$sdt,
-		    'email'=>$email,
-		    'matkhau'=>$matkhau 
+		    'email'=>$email
 		];
 		$this->db->where('id', $id);
-		$this->db->update('taikhoankhachhang', $dulieu);
+		$this->db->update('taikhoanadmin', $dulieu);
 		if ($this->db->affected_rows() > 0) {
 			echo 'thanhcong';
 		}
@@ -70,7 +69,7 @@ class admin_model extends CI_Model {
 	function xoaadmin($id)
 	{
 		$this->db->where('id', $id);
-		$dulieu=$this->db->delete('taikhoankhachhang');
+		$dulieu=$this->db->delete('taikhoanadmin');
 		return $dulieu;
 
 		

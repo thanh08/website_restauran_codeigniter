@@ -39,6 +39,18 @@
 						if ($key == 'logo') {
 							$logo=$value;
 						}
+						if ($key == 'logofooter') {
+							$logofooter=$value;
+						}
+						if ($key=='gioithieu') {
+							$gioithieu=$value;
+						}
+						if ($key=='email') {
+							$email=$value;
+						}
+						if ($key=='diachi') {
+							$diachi=$value;
+						}
 
 						 ?>
 					<?php endforeach ?>
@@ -81,10 +93,26 @@
 					<fieldset class="form-group">
 						<input type="hidden" class="form-control" name="logocu" id="" value="<?= $logo ?>">
 						<img src="<?= $logo ?>" name = "" alt="">
+						<input type="file" class="form-control" name="logo" id="" value="<?= $logo ?>">
+					</fieldset>
+					<div class="alert alert-primary" role="alert">Thông tin logofooter</div>
+					<fieldset class="form-group">
+						<input type="hidden" class="form-control" name="logofootercu" id="" value="<?= $logofooter ?>">
+						<img src="<?= $logofooter ?>" name = "" alt="">
+						<input type="file" class="form-control" name="logofooter" id="" value="<?= $logofooter ?>">
+					</fieldset>
+					<div class="alert alert-primary" role="alert">Thông tin email và địa chỉ</div>
+					<fieldset class="form-group">
+						<label for="formGroupExampleInput2">Giới thiệu</label>
+						<input type="text" name="gioithieu" class="form-control" id="" value="<?= $gioithieu ?>">
 					</fieldset>
 					<fieldset class="form-group">
-						<label for="formGroupExampleInput2">Logo</label>
-						<input type="file" name="logo" class="form-control" id="">
+						<label for="formGroupExampleInput2">Email</label>
+						<input type="text" name="email" class="form-control" id="" value="<?= $email ?>" >
+					</fieldset>
+					<fieldset class="form-group">
+						<label for="formGroupExampleInput2">Địa chỉ</label>
+						<input type="text" name="diachi" class="form-control" value="<?= $diachi ?>" id="">
 					</fieldset>
 					<fieldset>
 						<input type="submit" class="btn-primary btn-block" value="Lưu thông tin">

@@ -18,69 +18,10 @@
 </head>
 <body>
 <!-- topheader -->
-<!-- <div class="topheader">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-7 col-md-7">
-                <div class="mangxahoi float-sm-left ">
-                    <a href=""><i class="fa fa-facebook-f    "></i></a>
-                    <a href=""><i class="fa fa-twitter    "></i></a>
-                    <a href=""><i class="fa fa-skyatlas    "></i></a>
-                    <a href=""><i class="fa fa-tumblr"></i></a>
-                </div>
-                <div class="datban">
-                    Call for reservation: +011 29 345 678
-                </div>
-            </div>
-            <div class="col-sm-5 col-md-5">
-                <div class="openhour datban float-sm-right">
-                    Opening Hours : 9:00am - 10:00pm
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
+
   <?php include('header.php') ?>
 
 <!-- end topheader -->
-<!-- menuandlogo -->
-<div class="menuandlogo fontroboto">
-
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="<?= $logo ?>" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url() ?>">Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo base_url(); ?>news">New</a>
-                    </li>
-                   <!--  <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url(); ?>contact">Contact Us</a>
-                    </li>
-                    <li class="nav-item nutdb">
-                        <a class="nav-link btn-warning nutdatban" href="#">Reservation</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-<!-- endmenuandlogo -->
 <div class="contentofblog">
     <div class="container">
 
@@ -122,12 +63,12 @@
                         <a href="<?php echo base_url() ?>news/loadnewschitiet/<?= $value['id'] ?>"><div class="titleblog fontoswald"><?= $value['tieude'] ?></div></a>
                         <?php $time = gmdate('d/m/Y-H:i A',$value['ngaytao']);
                             ?>
-                        <div class="dateblog"><span><?= $time ?></span> in <span style="color: #feb518;"><?= $value['tendanhmuc'] ?></span></div>
+                        <div class="dateblog"><span><?= $time ?></span> trong <span style="color: #feb518;"><?= $value['tendanhmuc'] ?></span></div>
                         <div class="content01blog"><?= $value['mota'] ?></div>
                         <div class="readmore fontroboto">
-                            <div class="read"><a href="<?php echo base_url() ?>news/loadnewschitiet/<?= $value['id'] ?>">Read more</a></div>
+                            <div class="read"><a href="<?php echo base_url() ?>news/loadnewschitiet/<?= $value['id'] ?>">Xem thêm</a></div>
 
-                            <div class="likeblog">10 like</div>
+                            <div class="likeblog">10 lượt thích</div>
 
                         </div>
 
@@ -208,76 +149,9 @@
     </div>
 </div>
 
-<!-- footer -->
-<div class="footerend fontroboto">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <img src="images/logofooter_22.png" alt="">
-                <p class="textfooter">Marsh mallow muffin soufflé jelly-o tart cake Marshmallow macaroon jelly jubes dont tiramisu croissant cake.</p>
-                <p class="text1footer"><i class="fa fa-paper-plane"></i>Address : 44 New Design Street, Melbourne 005</p>
-                <p class="text2footer"><i class="fa fa-phone"></i><span>Phone : (01) 800 433 633</span></p>
-                <p class="text3footer"><i class="fa fa-envelope"></i><span>Email : info@Example.com</span></p>
-            </div>
-            <div class="col-sm-2">
-                <div class="text1uselink">usefull links</div>
-                <ul>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-
-                </ul>
-
-            </div>
-            <div class="col-sm-2">
-                <div class="blogpost">
-                    Latest Blog Post
-                </div>
-                <ul>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-                    <li>Reservation</li>
-
-                </ul>
-
-            </div>
-            <div class="col-sm-4">
-                <div class="footeropenhour">
-                    <div class="footerhour">Opening Hours</div>
-                    <ul>
-                        <li>Mon — Fri ........................ 9:00 am - 23:00 pm
-                        </li>
-                        <li>Mon — Fri ........................ 9:00 am - 23:00 pm
-                        </li>
-                        <li>Mon — Fri ........................ 9:00 am - 23:00 pm
-                        </li>
-                        <li>Note: Arctica Restaurant is closed on holidays.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- endfooter -->
-<!-- foote1 -->
-<div class="footer1 fontroboto">
-    <div class="container">
-        <div class="row ">
-            <div class="col-sm-12 text-center">
-                Copyrights © 2015 All Rights Reserved.
-            </div>
-        </div>
-    </div>
-</div>
-<!-- endfooter1 -->
-
+ <!-- footer -->
+  <?php include('footer.php') ?>
+   <!-- endfooter1 -->
 
 
 

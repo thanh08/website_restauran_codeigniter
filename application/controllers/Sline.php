@@ -163,8 +163,6 @@ class Sline extends CI_Controller {
 		}
 		
 		$tatcasline=json_encode($tatcasline);
-
-		
 		$this->load->model('updatesline_model');
 		if ($this->updatesline_model->insertsline($tatcasline)) {
 			$this->load->view('success');

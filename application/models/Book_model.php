@@ -10,23 +10,33 @@ class Book_model extends CI_Model {
 		
 	}
 
-	function insertdatabook($ten,$email,$sdt,$ngaydat,$giodat,$songuoi)
+	function insertdatabook($id_giaodich,$ngaydat,$giodat,$songuoi)
 	{
 		$dulieu = [
-		    'ten' => $ten,
-		    'email' => $email,
-		    'sdt' => $sdt,
+			'transaction_id'=>$id_giaodich,
 		    'ngaydat' => $ngaydat,
 		    'giodat' => $giodat,
 		    'songuoi' => $songuoi
 
 		];
-		return $this->db->insert('customer_book', $dulieu);
+		$dl=$this->db->insert('table_book', $dulieu);
+		return $dl;
 
 	}
 	function showdatabook()
 	{
 		$this->db->select('*');
+		$dulieu = $this->db->get('customer_book');
+		$dulieu = $dulieu->result_array();
+		return $dulieu;
+		// echo "<pre>";
+		// var_dump($dulieu);
+		// echo "</pre>";
+	}
+	function getdatabook($id)
+	{
+		$this->db->select('*');
+		$this->db->where('id', $id);
 		$dulieu = $this->db->get('customer_book');
 		$dulieu = $dulieu->result_array();
 		return $dulieu;
@@ -43,6 +53,40 @@ class Book_model extends CI_Model {
 		$this->db->where('id', $id);
 		$dulieu = $this->db->update('customer_book', $dulieu);
 		return $dulieu;
+	}
+	function comfirm_contact($id,$status)
+	{
+		$dulieu = [
+		    'id' =>$id,
+		    'status' =>$status 
+		];
+		$this->db->where('id', $id);
+		$dulieu = $this->db->update('customer_contact', $dulieu);
+		return $dulieu;
+	}
+	function insertdatacontact($dulieu)
+	{
+		return $this->db->insert('customer_contact', $dulieu);
+		
+	}
+	function getcontact()
+	{
+		$this->db->select('*');
+		$dulieu=$this->db->get('customer_contact');
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
+	function getdatacontact($id)
+	{
+		$this->db->select('*');
+		$this->db->where('id', $id);
+		$dulieu = $this->db->get('customer_contact');
+		$dulieu = $dulieu->result_array();
+		return $dulieu;
+		// echo "<pre>";
+		// var_dump($dulieu);
+		// echo "</pre>";
 	}
 	
 

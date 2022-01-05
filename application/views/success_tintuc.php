@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="alert alert-success" role="alert">
-					<strong>Success!</strong> You successfully read this important alert message.
+					<strong>Thành công!</strong> Đã được xác nhận thành công.
 				</div>
 			</div>
 		</div>

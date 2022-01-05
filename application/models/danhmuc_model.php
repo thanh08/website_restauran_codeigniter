@@ -137,6 +137,21 @@ class danhmuc_model extends CI_Model {
 		return $dulieu;
 
 	}
+	function laytintucloadtrangchu()
+	{
+		$this->db->select('*');
+		$this->db->from('danhmucnews');
+		$this->db->join('news', 'news.iddanhmuc = danhmucnews.id', 'left');
+		$this->db->order_by('news.ngaytao', 'desc');
+		$dulieu =$this->db->get('',4, 1);
+		$dulieu = $dulieu ->result_array();
+		// echo "<pre>";
+		// var_dump($dulieu);
+		// echo "</pre>";
+		return $dulieu;
+
+	}
+
 	function laysotrang()
 	{   
 		$sotintrongpage=2;
