@@ -44,7 +44,7 @@
 						<input type="hidden" ng-model="motdanhmuc.id">
 						<button class="btn btn-warning float-right" ng-show="motdanhmuc.hienthi" ng-click="suadanhmucsp(motdanhmuc)">Sửa</button>
 						<button class="btn btn-success" ng-show="!motdanhmuc.hienthi" ng-click="luudanhmucsp(motdanhmuc)">Lưu</button>
-			<button class="btn btn-danger float-right" ng-click="xoadanhmucsp(motdanhmuc)">Xóa</button>
+						<button class="btn btn-danger float-right" ng-click="xoadanhmucsp(motdanhmuc)">Xóa</button>
 					</div>
 				</div>
 

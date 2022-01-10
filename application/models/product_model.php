@@ -9,6 +9,52 @@ class product_model extends CI_Model {
 		parent::__construct();
 		
 	}
+
+	function getspyeuthich($id){
+		$this->db->select('*,favorite.id,product.name,product.discount,product.image_link');
+		$this->db->from('favorite');
+		$this->db->join('product', 'product.id = favorite.id_product','left');
+		$this->db->where('id_user', $id);
+		$dl=$this->db->get();
+		$dl=$dl->result_array();
+		return $dl;
+
+	}
+	function xoaspfavorite($id)
+	{
+		$this->db->select('*');
+		$this->db->where('id', $id);
+		$dl=$this->db->delete('favorite');
+		return $dl;
+		
+	}
+	function getfavoritesp($dl)
+	{
+		$this->db->insert('favorite', $dl);
+
+
+
+		
+	}
+	function danhgiasp($dl)
+	{
+		$this->db->select('*');
+		$dl=$this->db->insert('ratting', $dl);
+		return $dl;
+
+	}
+	function laydulieudanhgia()
+	{
+		$this->db->select('*');
+		$this->db->from('ratting');
+		$this->db->join('user_login', 'user_login.id = ratting.user_id', 'inner');
+
+		$dl=$this->db->get();
+		$dl=$dl->result_array();
+		return $dl;
+
+		
+	}
 	function luudanhmuc($tendanhmuc)
 	{
 		$dulieu= [
@@ -91,7 +137,7 @@ class product_model extends CI_Model {
 
 		
 	}
-	function updatedulieumonan($id,$tieude,$iddanhmuc,$mota,$noidungtin,$hinhanh,$giagoc,$giasaugiam,$hinhanhlist,$status)
+	function updatedulieumonan($id,$tieude,$iddanhmuc,$mota,$noidungtin,$hinhanh,$giagoc,$giasaugiam,$hinhanhlist,$status,$tonkho)
 	{
 		$dulieu = [ 
 				'id'=>$id,
@@ -103,7 +149,8 @@ class product_model extends CI_Model {
 			    'image_list'=>$hinhanhlist,
 			    'status'=>$status,
 			    'description'=>$noidungtin,
-			    'description_short'=>$mota
+			    'description_short'=>$mota,
+			    'tonkho'=>$tonkho
 
 			    
 			];

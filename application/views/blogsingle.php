@@ -76,8 +76,8 @@
                 </div>
                 <div class="tagblogsingle fontroboto">
                     <div class="tagblog">Tag : <span>Food, Cereals, Others</span></div>
-                    <div class="commentblogsingle">10 comment</div>
-                </div>
+<!--                     <div class="commentblogsingle">10 comment</div>
+ -->                </div>
                 <div class="newkhac mb-3">
                     <div class="card-deck" >
                         <?php foreach ($dulieutinkhac as $key => $value): ?>

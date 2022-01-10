@@ -314,6 +314,8 @@ class News extends CI_Controller {
 		$dulieucuadanhmuc=$this->danhmuc_model->getdanhmuc();
 		$dulieu1 =$this->updatesline_model->getdulieuheader();
         $dulieuheader=json_decode($dulieu1,true);
+        	  $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
+
 
 		// echo "<pre>";
 		// var_dump($dulieu);
@@ -322,7 +324,9 @@ class News extends CI_Controller {
 		    'dulieutinchitiet' =>$dulieu,
 		    'dulieucuadanhmuc' =>$dulieucuadanhmuc,
 		    'dulieutinkhac'=>$dulieutinkhac,
-		    'dulieuheader'=>$dulieuheader
+		    'dulieuheader'=>$dulieuheader,
+		    'dulieunewstrangchu' => $dulieutintuctrangchu
+
 		];
 		$this->load->view('blogsingle', $dulieu, FALSE);
 	}

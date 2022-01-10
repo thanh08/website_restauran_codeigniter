@@ -19,6 +19,7 @@ $this->load->library('pagination');
 $this->load->model('billing_model');
 // Load database
 $this->load->model('login_database');
+$this->load->model('product_model');
 //load header and footer
 $this->load->model('updatesline_model');
 $this->load->model('danhmuc_model');
@@ -142,6 +143,7 @@ else
 }
 function xemuser()
 {
+
     $dulieu1 =$this->updatesline_model->getdulieuheader();
     $dulieuheader=json_decode($dulieu1,true);
     $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
@@ -151,19 +153,71 @@ function xemuser()
     $phone = ($this->session->userdata['logged_in']['phone']);
     $id = ($this->session->userdata['logged_in']['id']);
     }
-    $dl=$this->billing_model->getdulieugiaodich($id);
+    $dl3=$this->product_model->getspyeuthich($id);
+    // echo "<pre>";
+    // var_dump ($dl3);
+    // echo "</pre>";
+    $dl=$this->input->post('luachon');
+        if ($dl=='5don') {
+            //echo '5don';
+    $dl=$this->billing_model->getdulieugiaodich5day($id);
+// echo "<pre>";
+// var_dump($dl);
+// echo "</pre>";
+        }
+        elseif ($dl=='huy') {
+                $dl=$this->billing_model->getdulieugiaodichhuy($id);
+                // echo 'huy';
+                // echo "<pre>";
+                // var_dump ($dl);
+                // echo "</pre>";
+
+        }
+        elseif ($dl=='hoanthanh') {
+                $dl=$this->billing_model->getdulieugiaodichhoanthanh($id);
+                // echo 'hoanthanh';
+                // echo "<pre>";
+                // var_dump ($dl);
+                // echo "</pre>";
+
+        }
+        elseif ($dl=='1thang') {
+            $dl=$this->billing_model->getdulieugiaodich1thang($id);
+                // echo '1thang';
+                // echo "<pre>";
+                // var_dump ($dl);
+                // echo "</pre>";
+
+        }
+        else{
+            $dl=$this->billing_model->getdulieugiaodich($id);
+
+        }
     $dl1=$this->login_database->getuser($id);
     $dl2=$this->billing_model->getdulieugiaodich1($id);
+
             $dulieu = [
                 'dulieuheader' => $dulieuheader,
                 'dulieunewstrangchu' => $dulieutintuctrangchu,
                 'dulieudonhang' => $dl,
                 'user'=>$dl1,
-                'dulieudonhang1'=>$dl2
+                'dulieudonhang1'=>$dl2,
+                'monyeuthich'=>$dl3
 
                 
             ];
+
     	$this->load->view('admin_page',$dulieu,FALSE);
+    }
+    function locdulieu()
+    {
+        
+        $dl=$this->input->post('luachon');
+        if ($dl=='5don') {
+            echo 'ok';
+        }
+
+
     }
     function xemchitietdon($id)
     {
@@ -175,11 +229,35 @@ function xemuser()
     // echo "</pre>";
         
     }
+    //danh gia
+    function danhgia()
+    {
+        if (isset($this->session->userdata['logged_in'])) {
+    $username = ($this->session->userdata['logged_in']['username']);
+    $email = ($this->session->userdata['logged_in']['email']);
+    $phone = ($this->session->userdata['logged_in']['phone']);
+    $id = ($this->session->userdata['logged_in']['id']);
+    }
+        $s=$this->input->post('rating');
+        $noidung=htmlspecialchars($this->input->post('comment'));
+        $dl = [
+            'user_id' =>$id,
+            'ratting' =>$s,
+            'comment' =>$noidung 
+        ];
+       $dl =$this->product_model->danhgiasp($dl);
+       if ($dl) {
+           echo 'thanhcong';
+           redirect('../user_authentication/xemuser', 'refresh');
+       }
+        
+        
+    }
 
 
 
     // Logout from admin page
-    public function logout() {
+     function logout() {
 
     // Removing session data
     $sess_array = array(
@@ -291,6 +369,14 @@ $this->load->view('takepass',$dulieu,FALSE);
                 }
        
     }
+    function xoayeuthich($id)
+    {
+        $dl=$this->product_model->xoaspfavorite($id);
+        if ($dl) {
+            echo 'thanhcong';
+        }
+        
+    }
 
 
 
@@ -301,9 +387,9 @@ $this->load->view('takepass',$dulieu,FALSE);
         $config = array();
         $config["base_url"] = base_url() . "user_authentication/don_info";
         $total_row = $this->pagination_model->record_count();
-        echo "<pre>";
-        print_r ($total_row);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r ($total_row);
+        // echo "</pre>";
         $config["total_rows"] = $total_row;
         $config["per_page"] = 4;
         $config['use_page_numbers'] = TRUE;

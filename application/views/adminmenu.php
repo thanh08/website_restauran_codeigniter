@@ -33,7 +33,7 @@
         </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Quản lý thông tin nhà hàng</a>
+        <a class="nav-link" href="#">Quản lý thông tin</a>
         <ul>
           <li><a href="<?php echo base_url(); ?>sline">Thông tin slide</a></li>
           <li><a href="<?php echo base_url(); ?>home/editdulieuheader">Thông tin nhà hàng</a></li>
@@ -42,7 +42,12 @@
         </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>admin/showadmin">Quản lý tài khoản quản trị</a>
+        <a class="nav-link" href="#">Quản lý tài khoản</a>
+        <ul>
+          <li><a href="<?php echo base_url(); ?>admin/showadmin">Tài khoản quản trị</a></li>
+          <li><a href="#">Tài khoản khách hàng</a></li>
+
+        </ul>
       </li>
     </ul>
   </div>

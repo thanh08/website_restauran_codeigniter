@@ -98,6 +98,21 @@ background:-moz-linear-gradient(top, #B4F6FF 1px, #63D0FE 1px, #feb72e);
 			<div class="col-sm-12 text-sm-center ">
 				<h3>Thông tin khách đặt giao tận nhà</h3>
 			</div>
+			<div class="ml-3">    
+       <form method="POST" class="d-flex" action="<?php echo base_url(); ?>home/don_info" enctype="multipart/form-data" >
+        <div class="form-group">
+          <select class="form-control" name="luachon" id="">
+            <option value="" selected="selected">Tất cả</option>
+            <option value="5don" <?php echo set_select('luachon','5don'); ?>>5 đơn hàng gần đây</option>
+            <option value="1thang" <?php echo set_select('luachon','1thang'); ?> >1 tháng gần đây</option>
+            <option value="huy" <?php echo set_select('luachon','huy'); ?> >Đơn hàng hủy</option>
+            <option value="hoanthanh" <?php echo set_select('luachon','hoanthanh'); ?> >Đơn hàng hoàn thành</option>
+          </select>
+        </div>
+          <button type="submit" class="btn btn-primary ml-2 ">Lọc</button>
+        
+      </form>
+    </div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12 col-12">
@@ -147,6 +162,8 @@ background:-moz-linear-gradient(top, #B4F6FF 1px, #63D0FE 1px, #feb72e);
       	<?php } elseif ($value['status']==1) { ?>
 
       		<a class="btn-info p-1" style="text-decoration: none;" href="#">In đơn hàng</a>
+    <input type="hidden" class="tengiaodich" value="<?= $value['id'] ?>">
+
 
       	<?php } ?>
       </td>
@@ -188,7 +205,6 @@ background:-moz-linear-gradient(top, #B4F6FF 1px, #63D0FE 1px, #feb72e);
       
     </tr>
     </tbody>
-
   	<?php endforeach ?>
     
   </tbody>
@@ -227,6 +243,19 @@ background:-moz-linear-gradient(top, #B4F6FF 1px, #63D0FE 1px, #feb72e);
 
 
 		});
+		//
+		$('.btn-info').click(function(event) {
+			console.log('tada');
+			/* Act on the event */
+			var id=$(this).next().val();
+			console.log(id);
+
+var w = window.open('inhoadon/'+id,'name','width=800,height=500');
+w.onload = w.print;
+w.focus();
+
+		});
+		
 		
 	});
 </script>

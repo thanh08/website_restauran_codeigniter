@@ -68,7 +68,7 @@
                         <div class="readmore fontroboto">
                             <div class="read"><a href="<?php echo base_url() ?>news/loadnewschitiet/<?= $value['id'] ?>">Xem thêm</a></div>
 
-                            <div class="likeblog">10 lượt thích</div>
+                            <!-- <div class="likeblog">10 lượt thích</div> -->
 
                         </div>
 

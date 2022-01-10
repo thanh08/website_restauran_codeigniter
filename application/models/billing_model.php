@@ -64,6 +64,88 @@ class billing_model extends CI_Model {
 		return $dulieu;
 		
 	}
+	function getdulieugiaodich5day($id)
+	{
+		$this->db->select('*,transaction.id');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		$this->db->where('user_id', $id);
+		$this->db->where('payment_info','COD');
+		$this->db->or_where('payment_info','Credit Card');
+		$this->db->order_by("ngaydat", "DESC");
+		$this->db->limit(5);
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
+	function getdulieugiaodichhuy($id)
+	{
+		$this->db->select('*,transaction.id');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		// $this->db->where('payment_info','COD');
+		// $this->db->or_where('payment_info','Credit Card');
+		// $w = "user_id='$id' AND status='0'";
+		// $this->db->where($w);
+		//$this->db->where('user_id', $id);
+		//$this->db->where('status', 0);
+		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (user_id='" . $id . "')   AND (status='0')  ";
+        $this->db->where($wherecond);
+		
+
+		$this->db->order_by("ngaydat", "DESC");
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
+	function getdulieugiaodichhoanthanh($id)
+	{
+		$this->db->select('*,transaction.id');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		// $this->db->where('payment_info','COD');
+		// $this->db->or_where('payment_info','Credit Card');
+		// $w = "user_id='$id' AND status='1'";
+		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (user_id='" . $id . "')   AND (status='1')  ";
+        $this->db->where($wherecond);
+		//$this->db->where($w);
+		
+		//$this->db->where('user_id', $id);
+		//$this->db->where('status', 0);
+		
+
+		$this->db->order_by("ngaydat", "DESC");
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
+	function getdulieugiaodich1thang($id)
+	{
+		$this->db->select('*,transaction.id');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		//$this->db->where('user_id', $id);
+		// $this->db->where('payment_info','COD');
+		// $this->db->or_where('payment_info','Credit Card');
+		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (user_id='" . $id . "') ";
+        $this->db->where($wherecond);
+
+
+
+
+		$d=strtotime("first day of this month");
+		$d1=strtotime("last day of this month");
+		$this->db->where("ngaydat BETWEEN '$d' AND '$d1'" );
+
+		$this->db->order_by("ngaydat", "DESC");
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
 	function getdulieugiaodich1($id)
 	{
 		$this->db->select('*,transaction.id,transaction.ngaydat as ngaydattransaction ');
@@ -100,7 +182,20 @@ class billing_model extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('transaction');
+
 		$this->db->where('id', $id);
+		$dl=$this->db->get();
+		$dl=$dl->result_array();
+		return $dl;
+
+		
+	}
+	function gettransactiondulieu1($id)
+	{
+		$this->db->select('*,transaction.id');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		$this->db->where('transaction.id', $id);
 		$dl=$this->db->get();
 		$dl=$dl->result_array();
 		return $dl;

@@ -34,6 +34,88 @@ return $data;
 }
 return false;
 }
+
+
+public function fetch_data5day($limit,$trang) {
+$this->db->select('*,transaction.id');
+$this->db->from('transaction');
+$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+$this->db->where('payment_info','COD');
+$this->db->or_where('payment_info','Credit Card');
+$this->db->order_by("ngaydat", "DESC");
+$vt=($trang-1)*10;
+$query = $this->db->get("",$limit,$vt);
+if ($query->num_rows() > 0) {
+foreach ($query->result_array() as $row) {
+$data[] = $row;
+}
+
+return $data;
+}
+return false;
+}
+public function fetch_data1thang() {
+$this->db->select('*,transaction.id');
+$this->db->from('transaction');
+$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+
+
+
+//$this->db->where('payment_info','COD');
+//$this->db->or_where('payment_info','Credit Card');
+$d=strtotime("first day of this month");
+		$d1=strtotime("last day of this month");
+		$this->db->where("ngaydat BETWEEN '$d' AND '$d1'" );
+$this->db->order_by("ngaydat", "DESC");
+$query = $this->db->get();
+if ($query->num_rows() > 0) {
+foreach ($query->result_array() as $row) {
+$data[] = $row;
+}
+
+return $data;
+}
+return false;
+}
+public function fetch_datathanhcong() {
+$this->db->select('*,transaction.id');
+$this->db->from('transaction');
+$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+$this->db->where('status', 1);
+//$this->db->where('payment_info','COD');
+//$this->db->or_where('payment_info','Credit Card');
+$this->db->order_by("ngaydat", "DESC");
+$query = $this->db->get();
+if ($query->num_rows() > 0) {
+foreach ($query->result_array() as $row) {
+$data[] = $row;
+}
+
+return $data;
+}
+return false;
+}
+
+public function fetch_datahuy() {
+$this->db->select('*,transaction.id');
+$this->db->from('transaction');
+$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+$this->db->where('status', 0);
+//$this->db->where('payment_info','COD');
+//$this->db->or_where('payment_info','Credit Card');
+$this->db->order_by("ngaydat", "DESC");
+//$vt=($trang-1)*5;
+$query = $this->db->get();
+if ($query->num_rows() > 0) {
+foreach ($query->result_array() as $row) {
+$data[] = $row;
+}
+
+return $data;
+}
+return false;
+}
+
 //Fetch data order at restaurant according to per_page limit
 public function fetch_data1($limit,$trang) {
 $this->db->select('*,transaction.id,transaction.ngaydat as ngaydattransaction ');

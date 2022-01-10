@@ -112,7 +112,7 @@ if (isset($this->session->userdata['logged_in'])) {?>
               <label for="firstName">Họ và tên</label>
               <input type="text" class="form-control" name="name" id="firstName" placeholder="Họ và tên" value="<?php if (isset($username)) {
                 echo $username;
-                }?>" required>
+                }?>" required readonly>
               <div class="invalid-feedback">
                 Vui lòng nhập họ tên!
               </div>
@@ -125,8 +125,8 @@ if (isset($this->session->userdata['logged_in'])) {?>
             <div class="input-group">
               <input type="text" value="<?php if (isset($phone)) {
                 echo $phone;
-                }?>" class="form-control" name="phone" placeholder="Số điện thoại" required>
-              <div class="invalid-feedback" style="width: 100%;">
+                }?>" class="form-control" name="phone" placeholder="Số điện thoại" required readonly>
+              <div class="invalid-feedback" style="width: 100%;" >
                 Vui lòng nhập số điện thoại!
               </div>
             </div>
@@ -136,8 +136,8 @@ if (isset($this->session->userdata['logged_in'])) {?>
             <label for="email">Email</label>
             <input type="email" value="<?php if (isset($email)) {
                 echo $email;
-                }?>" class="form-control" name="email" id="email" placeholder="Email">
-            <div class="invalid-feedback">
+                }?>" class="form-control" name="email" id="email" placeholder="Email" readonly>
+            <div class="invalid-feedback" >
               Vui lòng nhập địa chỉ email!
             </div>
           </div>
@@ -146,7 +146,7 @@ if (isset($this->session->userdata['logged_in'])) {?>
             <label for="address">Địa chỉ</label>
             <input type="text" class="form-control" name="address" id="address" value="<?php if (isset($address)) {
                 echo $address;
-                }?>" placeholder="Địa chỉ" required>
+                }?>" placeholder="Địa chỉ" required readonly>
             <div class="invalid-feedback">
               Vui lòng nhập địa chỉ!
             </div>

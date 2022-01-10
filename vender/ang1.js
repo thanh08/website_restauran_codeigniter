@@ -108,6 +108,22 @@ app.controller('controller5', function ($scope,$http) {
 	
 	
 });
+
+//xóa sp yeu thích
+app.controller('controller8', function ($scope,$http) {
+	$scope.xoaspyeuthich=function () {
+		var id=$scope.id;
+		console.log(id);
+		$scope.an=true;
+		
+    $http.get("http://localhost/006/user_authentication/xoayeuthich/"+id).then(function(res){
+		console.log(res.data);
+	});
+
+	};
+	
+	
+});
 app.controller('controller6', function ($scope,$http) {
 	$scope.thaydoithongtin=function() {
 		$scope.hienthi=false;

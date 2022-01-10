@@ -20,7 +20,25 @@
   <?php include('header.php') ?>
   
    <!-- end topheader -->
-   
+   <?php
+if (isset($this->session->userdata['logged_in'])) {?>
+<?php $username = ($this->session->userdata['logged_in']['username']);
+ ?>
+ <?php $email = ($this->session->userdata['logged_in']['email']);
+ ?>
+ <?php $phone = ($this->session->userdata['logged_in']['phone']);
+ ?>
+ <?php $id = ($this->session->userdata['logged_in']['id']);
+ ?>
+  <?php $address = ($this->session->userdata['logged_in']['address']);
+ ?>
+
+<?php
+} else {
+//header("location: login");
+
+}
+?>
   <!-- message -->
   <div class="messenge">
     <div class="container">
@@ -44,20 +62,28 @@
             <div class="form-row fontroboto">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Tên</label>
-                <input type="text" class="form-control" id="inputEmail4" name="name">
+                <input type="text" class="form-control" id="inputEmail4" name="name" value="<?php if (isset($username)) {
+                echo $username;
+                }?>">
               </div>
               <div class="form-group col-md-6">
                 <label for="">Số điện thoại</label>
-                <input type="phone" class="form-control" id="inputPassword4" name="sdt">
+                <input type="phone" class="form-control" id="inputPassword4" name="sdt" value="<?php if (isset($phone)) {
+                echo $phone;
+                }?>">
               </div>
             </div>
             <div class="form-group fontroboto">
               <label for="inputAddress">Email</label>
-              <input type="email" class="form-control" id="inputAddress" placeholder="" name="email">
+              <input type="email" class="form-control" id="inputAddress" value="<?php if (isset($email)) {
+                echo $email;
+                }?>" placeholder="" name="email">
             </div>
             <div class="form-group fontroboto">
               <label for="inputAddress">Địa chỉ</label>
-              <input type="textarea" class="form-control" id="inputAddress" placeholder="" name="address">
+              <input type="textarea" class="form-control" id="inputAddress" value="<?php if (isset($address)) {
+                echo $address;
+                }?>" placeholder="" name="address">
             </div>
             <div class="form-group fontroboto" >
               <label for="">Mô tả</label>

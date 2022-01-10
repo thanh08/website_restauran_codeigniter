@@ -212,6 +212,7 @@ class Product extends CI_Controller {
 		$giasaugiam=$this->input->post('giasaugiam');
 		$iddanhmuc = $this->input->post('iddanhmuc');
 		$noidungtin = $this->input->post('noidungtin');
+
 		//lay du lieu anh
 		$target_dir = "uploads/";
 		$target_file = $target_dir . basename($_FILES["hinhanh"]["name"]);
@@ -299,11 +300,12 @@ class Product extends CI_Controller {
 		$hinhanhlist=json_encode($hinhanhlist);
 		//
 		$status=$this->input->post('themnew');
+		$tonkho=$this->input->post('tonkho');
 		// echo "<pre>";
 		// var_dump($status);
 		// echo "</pre>";
 
-		$dulieu=$this->product_model->updatedulieumonan($id,$tieude,$iddanhmuc,$mota,$noidungtin,$hinhanh,$giagoc,$giasaugiam,$hinhanhlist,$status);
+		$dulieu=$this->product_model->updatedulieumonan($id,$tieude,$iddanhmuc,$mota,$noidungtin,$hinhanh,$giagoc,$giasaugiam,$hinhanhlist,$status,$tonkho);
 		if ($dulieu) {
   			$this->load->view('success_monan');
 			
@@ -329,7 +331,8 @@ class Product extends CI_Controller {
          $dulieuheader=json_decode($dulieu1,true);
          $dulieumonankhac=$this->product_model->getmonankhac($id);
 	  $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
-
+	  $d1=$this->product_model->laydulieudanhgia();
+	  
 
 		 $dulieu = [
 		     'dulieudanhmuc' => $dulieudanhmuc,
@@ -338,7 +341,8 @@ class Product extends CI_Controller {
 		     'dulieuheader' => $dulieuheader,
 		     'dulieumonankhac' => $dulieumonankhac,
 		     'dulieuanhlist' => $dulieuanhlist,
-		    'dulieunewstrangchu' => $dulieutintuctrangchu
+		    'dulieunewstrangchu' => $dulieutintuctrangchu,
+		    'dulieudanhgia' => $d1
 		     
 		 ];
 		// echo "<pre>";

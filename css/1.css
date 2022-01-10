@@ -21,6 +21,13 @@
     visibility: visible;
     opacity: 1;
 }
+span.yeuthich {
+    float: right;
+}
+
+i.fa.fa-heart-o {
+    font-size: 20px;
+}
 
 /* topheader */
 

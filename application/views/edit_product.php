@@ -47,6 +47,12 @@
 							<option value="0">Món cũ</option>
 
 						</select>
+						<select class="form-control mt-2" name="tonkho">
+
+							<option value="0">Có hàng</option>
+							<option value="1">Hết hàng</option>
+
+						</select>
 					</fieldset>
 
 

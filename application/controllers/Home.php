@@ -10,7 +10,10 @@ class Home extends CI_Controller {
 	  $this->load->model('danhmuc_model');
 	 $this->load->model('Book_model');
 	 $this->load->model('pagination_model');
+	 $this->load->model('billing_model');
      $this->load->library('pagination');
+     $this->load->library('form_validation');
+
 
 	   $this->load->library('email');
 	   $this->load->library('encryption');
@@ -48,6 +51,28 @@ class Home extends CI_Controller {
 
 
 	  
+	}
+	//in hoa don
+	function inhoadon($id_giaodich)
+	{
+		echo $id_giaodich;
+		$dl1=$this->billing_model->getdulieumondat($id_giaodich);
+	    $dl3=$this->billing_model->gettransactiondulieu1($id_giaodich);
+	    $dl2=[
+	        'dulieumondat' =>$dl1,
+	        'madon'=>$id_giaodich,
+	        'dulieugiaodich'=>$dl3
+	    ];
+	    // echo "<pre>";
+	    // var_dump ($dl2);
+	    // echo "</pre>";
+	    $this->load->view('hoadon', $dl2, FALSE);
+		// $dulieu=$this->Book_model->getdatacontact(1);
+		// $dl = [
+		//     'dlbook' =>$dulieu
+		// ];
+		// $this->load->view('emailcontact',$dl,FALSE);
+		
 	}
 	
 	
@@ -238,7 +263,40 @@ class Home extends CI_Controller {
         else{
         $page = 1;
         }
-        $data["results"] = $this->pagination_model->fetch_data($config["per_page"],$page);
+        $dl=$this->input->post('luachon');
+        if ($dl=='5don') {
+            //echo '5don';
+    
+        	        $data["results"] = $this->pagination_model->fetch_data5day(5,$page);
+        	        // echo "<pre>";
+        	        // print_r ($data["results"]);
+        	        // echo "</pre>";
+
+        }elseif ($dl=='1thang') {
+                $data["results"] = $this->pagination_model->fetch_data1thang();
+        	        // echo "<pre>";
+        	        // print_r ($data["results"]);
+        	        // echo "</pre>";
+
+        }elseif ($dl=='huy') {
+                $data["results"] = $this->pagination_model->fetch_datahuy();
+        	        // echo "<pre>";
+        	        // print_r ($data["results"]);
+        	        // echo "</pre>";
+
+        }
+        elseif ($dl=='hoanthanh') {
+        	//echo 'hoan thanh';
+                $data["results"] = $this->pagination_model->fetch_datathanhcong();
+        	        // echo "<pre>";
+        	        // print_r ($data["results"]);
+        	        // echo "</pre>";
+
+        }
+        else{
+        	        $data["results"] = $this->pagination_model->fetch_data($config["per_page"],$page);
+
+        }
         // echo "<pre>";
         // var_dump($data["results"]);
         // echo "</pre>";

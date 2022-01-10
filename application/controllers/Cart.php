@@ -54,6 +54,18 @@ class Cart extends CI_Controller {
 		
 
 	}
+	function addfavorite()
+	{
+		$id_user=$this->input->post('id_user');
+		$id_product=$this->input->post('id_product');
+		$dl = [
+		    'id_user' =>$id_user,
+		    'id_product'=>$id_product 
+		];
+		$this->product_model->getfavoritesp($dl);
+		
+		
+	}
 	function remove($rowid) {
 	// Check rowid value.
 	if ($rowid==="all"){
@@ -81,9 +93,9 @@ class Cart extends CI_Controller {
 
 		
 		$sl=$this->input->post('soluong');
-		echo "<pre>";
-		var_dump ($sl);
-		echo "</pre>";
+		// echo "<pre>";
+		// var_dump ($sl);
+		// echo "</pre>";
 			
 		
 		foreach( $this->cart->contents() as $id => $cart)
@@ -167,12 +179,13 @@ class Cart extends CI_Controller {
 		$userid=$this->input->post('id');
 		$email=$this->input->post('email');
 		$ten=$this->input->post('name');
-		
+
 		if (isset($_POST['submit'])) {
         if(!empty($_POST['paymentMethod'])) {
             $pay=$_POST['paymentMethod'];
             //echo $pay;
                                     }}
+                                    
         $total = $this->cart->total();
 
 	    $id_giaodich =$this->billing_model->insertgiaodich($userid,$pay,$total);

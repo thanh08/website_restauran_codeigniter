@@ -90,7 +90,11 @@ if (isset($this->session->userdata['logged_in'])) {?>
  ?>
  <?php $email = ($this->session->userdata['logged_in']['email']);
  ?>
+ <?php $id = ($this->session->userdata['logged_in']['id']);
+ ?>
 
+  <input type="hidden" value="<?= $id ?>" id="idnguoidung">
+ 
 <?php
 } else {
 //header("location: login");
@@ -99,7 +103,8 @@ if (isset($this->session->userdata['logged_in'])) {?>
 ?>
 
              <li class="nav-item nutdb">
-              <a class="nav-link btn-warning nutdatban" <?php if (isset($username)) {?>
+
+             <a class="nav-link btn-warning nutdatban" <?php if (isset($username)) {?>
                 href="<?php echo base_url(); ?>user_authentication/xemuser"
               <?php } else {?>
                 href="<?php echo base_url(); ?>user_authentication"

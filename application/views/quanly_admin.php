@@ -54,7 +54,7 @@
       <td>{{mottk.taikhoan}}</td>
       <td>{{mottk.sdt}}</td>
       <td>{{mottk.email}}</td>
-      <td><button class="btn-warning" ng-click="suataikhoan(mottk)">Sửa</button><a class="btn-danger ml-1 p-1" href="<?php echo base_url(); ?>/admin/xoataikhoan/{{mottk.id}}">Xóa</a></td>
+      <td><button class="btn-warning" ng-click="suataikhoan(mottk)">Sửa</button><a style="text-decoration: none;" class="btn-danger ml-1 p-1" href="<?php echo base_url(); ?>/admin/xoataikhoan/{{mottk.id}}">Xóa</a></td>
 
     </tr>
     <tr ng-show="!mottk.hienthi">

@@ -69,12 +69,13 @@
                <input type="hidden" value="<?= $value['name'] ?>" id="namemon">
 
                <div class="review fontroboto">
-                   <i class="fa fa-star" aria-hidden="true"></i>
-                   <i class="fa fa-star" aria-hidden="true"></i>
-                   <i class="fa fa-star" aria-hidden="true"></i>
-                   <i class="fa fa-star" aria-hidden="true"></i>
-                <span class="rev">2 Review</span>
-                <span class="textrev">Viết đánh giá</span>
+                   <i class="fa f-star" aria-hidden="true"></i>
+                   <i class="fa f-star" aria-hidden="true"></i>
+                   <i class="fa f-star" aria-hidden="true"></i>
+                   <i class="fa f-star" aria-hidden="true"></i>
+                <span class="rev"></span>
+                <span class="yeuthich"><i class="fa fa-heart-o" aria-hidden="true"></i>
+</span>
                 <div class="describe">
                 <?= $value['description_short'] ?>
                     
@@ -102,7 +103,12 @@
                </div>
                <span class="textsoluong">Số lượng:</span>
                <input type="number" name="soluong" min="1" id="soluong" value="1" class="soluong">
-               <button type="button" id="nut1" class="btn btn-warning">Thêm vào giỏ hàng</button>
+               <?php if ($value['tonkho']== 0){ ?>
+                                <button type="button" id="nut1" class="btn btn-warning">Thêm vào giỏ hàng</button>
+
+               <?php } elseif ($value['tonkho']== 1) { ?>
+                 <?php echo 'Hết hàng'; ?>
+               <?php } ?>
                <i class="fa fa-share-alt" aria-hidden="true"></i>
                <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -115,7 +121,29 @@
               </ul>
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><?= $value['description'] ?></div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae ultricies ege tempor sit amet, ante. Donec eu libero sit amet quam egestas semperenean ultricies mi vitae est. Mauris placerat eleifend leo.</div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <span>2 Review</span>
+
+                  <?php foreach ($dulieudanhgia as $key => $value): ?>
+                    
+
+           <li class="list-group-item d-flex justify-content-between lh-condensed mt-2">
+            <div>
+              <h6 class="my-0"><?= $value['user_name'] ?></h6>
+              <small class="text-muted"><?= $value['comment'] ?></small>
+            </div>
+            <span class="text-muted"></span>
+          </li>
+
+
+                  <?php endforeach ?>
+
+
+
+
+
+
+        </div>
               </div>
 
                </div>
@@ -200,7 +228,7 @@
    <script>
     $(function () {
       duongdan='<?php echo base_url(); ?>';
-      //phần thêm danh mục bằng ajax
+      //phần thêm sp vao gio hang bằng ajax
       $('#nut1').click(function () {
         $.toast({
     heading: 'Thành công',
@@ -223,6 +251,45 @@
         })
         .done(function() {
           //console.log("success");
+          
+        })
+        .fail(function() {
+          //console.log("error");
+        })
+        .always(function(res) {
+          //console.log(res);
+          
+          
+        });
+        
+      });
+
+
+      
+      //them sp yeu thich
+      $('.yeuthich').click(function () {
+        $.toast({
+    heading: 'Thành công',
+    text: 'Bạn đã thêm thành công món ăn vào mục yêu thích!',
+    showHideTransition: 'slide',
+        position: 'top-right',
+
+    icon: 'success'
+})
+        $(this).children().css("color", "red");
+        $.ajax({
+          url: duongdan+'Cart/addfavorite',
+          type: 'post',
+          dataType: 'json',
+          data: {id_product:$('#id').val(),
+          id_user:$('#idnguoidung').val()
+
+        },
+        })
+        .done(function() {
+          //console.log("success");
+          
+
           
         })
         .fail(function() {
