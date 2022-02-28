@@ -122,6 +122,7 @@
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><?= $value['description'] ?></div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+<<<<<<< HEAD
                   <span>2 Review</span>
 
                   <?php foreach ($dulieudanhgia as $key => $value): ?>
@@ -131,6 +132,23 @@
             <div>
               <h6 class="my-0"><?= $value['user_name'] ?></h6>
               <small class="text-muted"><?= $value['comment'] ?></small>
+=======
+
+                  
+                  <?php $t = 0; ?>
+                <?php foreach ($dulieudanhgia as $key => $value): ?>
+                    <?php $t=$t+1 ?>
+
+                  <?php endforeach ?>
+                  <span><?= $t ?> Đánh giá</span>
+                  <?php foreach ($dulieudanhgia as $key => $value): ?>
+                    
+                    <?php $t++ ?>
+           <li class="list-group-item d-flex justify-content-between lh-condensed mt-2">
+            <div>
+              <h6 class="my-0"><?= $value['user_name'] ?><span style="font-size: 10px; padding-left: 5px;"><i class="fa fa-check" aria-hidden="true"></i>Đã mua hàng</span></h6>
+              <small class="text-muted" style="font-size: 13px;"><?= $value['comment'] ?></small>
+>>>>>>> 7d99a79... new update
             </div>
             <span class="text-muted"></span>
           </li>

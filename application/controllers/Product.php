@@ -181,9 +181,12 @@ class Product extends CI_Controller {
 		$dulieu=$this->product_model->laydatamonan($id);
 		$dulieumonanchitiet=$this->product_model->getdulieumonanchitiet($id);
 		 $dulieuanhlist=json_decode($dulieumonanchitiet[0]['image_list'],true);
+		$dulieudm=$this->product_model->getdanhmucsp();
+		
 		$dulieu = [
 		    'dulieumonan' =>$dulieu,
-		    'dulieuanhlist' => $dulieuanhlist
+		    'dulieuanhlist' => $dulieuanhlist,
+		    'dulieudm'=> $dulieudm
 
 		];
 		$this->load->view('edit_product', $dulieu, FALSE);
@@ -331,8 +334,12 @@ class Product extends CI_Controller {
          $dulieuheader=json_decode($dulieu1,true);
          $dulieumonankhac=$this->product_model->getmonankhac($id);
 	  $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
+<<<<<<< HEAD
 	  $d1=$this->product_model->laydulieudanhgia();
 	  
+=======
+	  $d1=$this->product_model->laydulieudanhgia($id);
+>>>>>>> 7d99a79... new update
 
 		 $dulieu = [
 		     'dulieudanhmuc' => $dulieudanhmuc,

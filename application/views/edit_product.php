@@ -97,11 +97,14 @@
 						 
 						</div>
 					</fieldset>
-					<fieldset class="form-group" ng-controller="controller3">
+					<fieldset class="form-group" >
 						<label for="formGroupExampleInput2">Danh mục món ăn</label>
 						<select class="form-control" id="danhmuctin" name="iddanhmuc">
-                        		
-                                <option ng-repeat="motdanhmuc in danhmucsp" value="{{motdanhmuc.id}}">{{motdanhmuc.name}}</option>
+							<?php $t= $value['catalog_id'] ?>
+                        		<?php foreach ($dulieudm as $key => $value): ?>
+                        			
+                                <option value="<?= $value['id'] ?>"<?php if($t== $value['id']){ echo'selected'; } ?> ><?= $value['name'] ?></option>
+                        		<?php endforeach ?>
 
                            
                            </select>

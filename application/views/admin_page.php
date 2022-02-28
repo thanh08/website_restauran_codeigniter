@@ -13,7 +13,6 @@ $diachi = ($this->session->userdata['logged_in']['address']);
 ?>
 <head>
 <title>Hồ sơ tài khoản</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -21,6 +20,11 @@ $diachi = ($this->session->userdata['logged_in']['address']);
 <link rel="stylesheet" href="<?php echo base_url(); ?>fonts/font-awesome.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/1.css">
+<<<<<<< HEAD
+=======
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
+
+>>>>>>> 7d99a79... new update
 <style>
   .animated {
     -webkit-transition: height 0.2s;
@@ -49,7 +53,7 @@ echo "<br/>";
 <b id="logout"><a href="logout">Đăng xuất</a></b>
 </div>
 <div class="row mt-2">
-<div class="col-sm-2">
+<div class="col-sm-2 col-12">
 	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
   <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Hồ sơ</a>
   <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Đơn hàng</a>
@@ -58,7 +62,7 @@ echo "<br/>";
 
 </div>
 </div>
-<div class="col-sm-10" >
+<div class="col-sm-10 col-12" >
 	<div class="tab-content" id="v-pills-tabContent">
   <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
@@ -184,7 +188,12 @@ echo "<br/>";
         <?php 
         if ($value['status']==NULL) {?>
           <a class="btn-danger p-1" style="text-decoration: none;" href="<?php echo base_url(); ?>cart/huydon/<?= $value['id'] ?>">Hủy đơn hàng</a>
+<<<<<<< HEAD
        <?php }elseif($value['status']==1){?>
+=======
+       <?php }elseif( empty($value['transaction_id']) && $value['status']==1){?>
+
+>>>>>>> 7d99a79... new update
           <!-- phan danh gia -->
           <div class="container">
   <div class="row">
@@ -197,7 +206,11 @@ echo "<br/>";
                 <div class="col-md-12">
                     <form accept-charset="UTF-8" action="<?php echo base_url(); ?>user_authentication/danhgia" method="post">
                         <input class="ratings-hidden" name="rating" type="hidden"> 
+<<<<<<< HEAD
 
+=======
+                        <input type="hidden" name="idgiaodich" value="<?= $value['id'] ?>">
+>>>>>>> 7d99a79... new update
 <!--                         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
  -->                        <textarea class="new-review form-control animated" cols="" id="" name="comment" placeholder="Viết đánh giá của bạn đây!" rows=""></textarea>
         
@@ -218,13 +231,17 @@ echo "<br/>";
 <!-- endphandanhgia
  -->
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7d99a79... new update
 
 
-        <?php
-      }elseif($value['status']==0){
-
-      }
-         ?>
+        <?php }elseif( !empty($value['transaction_id']) && $value['status']==1 ){?>
+        <div>
+                <div class="btn btn-primary">Đã đánh giá</div>
+            </div>
+      <?php } ?>
         
 
 
@@ -303,6 +320,20 @@ echo "<br/>";
     
     <div class="row">
       <div class="col-sm-12 col-12 text-center"><h4>Thông tin về đơn hàng</h4></div>
+      <div>    
+       <form method="POST" action="<?php echo base_url(); ?>user_authentication/xemuser" enctype="multipart/form-data" >
+        <div class="form-group">
+          <select class="form-control" name="luachon1" id="">
+            <option value="" selected="selected">Tất cả</option>
+            <option value="5don1" <?php echo set_select('luachon1','5don1'); ?>>5 đơn hàng gần đây</option>
+            <option value="1thang1" <?php echo set_select('luachon1','1thang1'); ?>>1 tháng gần đây</option>
+            <option value="huy1" <?php echo set_select('luachon1','huy1'); ?>>Đơn hàng hủy</option>
+            <option value="hoanthanh1" <?php echo set_select('luachon1','hoanthanh1'); ?>>Đơn hàng hoàn thành</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Lọc</button>
+      </form>
+    </div>
     </div>
     <div class="row">
       <div class="col-sm-10 offset-sm-1">
@@ -343,7 +374,12 @@ echo "<br/>";
         <?php 
         if ($value['status']==NULL) {?>
           <a class="btn-danger p-1" style="text-decoration: none;" href="<?php echo base_url(); ?>cart/huydon/<?= $value['id'] ?>">Hủy đơn hàng</a>
+<<<<<<< HEAD
        <?php }elseif($value['status']==1){?>
+=======
+       <?php }elseif( empty($value['transaction_id']) && $value['status']==1){?>
+        
+>>>>>>> 7d99a79... new update
           <!-- phan danh gia -->
           <div class="container">
   <div class="row">
@@ -356,6 +392,7 @@ echo "<br/>";
                 <div class="col-md-12">
                     <form accept-charset="UTF-8" action="<?php echo base_url(); ?>user_authentication/danhgia" method="post">
                         <input class="ratings-hidden" name="rating" type="hidden"> 
+<<<<<<< HEAD
 
 <!--                         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
  -->                        <textarea class="new-review form-control animated" cols="" id="" name="comment" placeholder="Viết đánh giá của bạn đây!" rows=""></textarea>
@@ -378,10 +415,37 @@ echo "<br/>";
  -->
         <?php
       }elseif($value['status']==0){
-
-      }
-         ?>
+=======
+                        <input type="hidden" name="idgiaodich" value="<?= $value['id'] ?>">
+<!--                         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+ -->                        <textarea class="new-review form-control animated" cols="" id="" name="comment" placeholder="Viết đánh giá của bạn đây!" rows=""></textarea>
         
+                        <div class="text-right">
+                            <div class="stars starrr" data-rating="0"></div>
+                            <a class="close-review-box btn btn-danger btn-sm" href="#" id="" style="display:none; margin-right: 10px;">
+                            <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                            <button class="btn btn-success" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> 
+         
+    
+  </div>
+</div>
+<!-- endphandanhgia -->
+
+
+>>>>>>> 7d99a79... new update
+
+        <?php }elseif( !empty($value['transaction_id']) && $value['status']==1 ){?>
+        <div>
+                <div class="btn btn-primary">Đã đánh giá</div>
+            </div>
+      <?php } ?>
+        
+
 
 
       </td>
@@ -580,10 +644,17 @@ $(function(){
     var h=ratingsField.val(value);
     console.log(h);
   });
+<<<<<<< HEAD
 });
 
 });
 
+=======
+});
+
+});
+
+>>>>>>> 7d99a79... new update
 </script>
     <script src="<?php echo base_url(); ?>js/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>

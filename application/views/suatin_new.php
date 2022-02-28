@@ -52,9 +52,10 @@
 						<fieldset class="form-group">
 						<label for="formGroupExampleInput2">Danh mục tin</label>
 						<select class="form-control" id="danhmuctin" name="iddanhmuc">
+							<?php $t= $value['iddanhmuc'] ?>
 						<?php foreach ($dulieudanhmucedit as $key => $value): ?>
                         		
-                                <option value="<?= $value['id'] ?>"><?= $value['tendanhmuc'] ?></option>
+                                <option <?php if($t ==  $value['id']  ){ echo'selected'; } ?>  value="<?= $value['id'] ?>"><?= $value['tendanhmuc'] ?></option>
 
 						<?php endforeach ?>
 					<?php endforeach ?>

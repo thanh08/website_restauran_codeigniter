@@ -79,6 +79,29 @@ class Admin extends CI_Controller {
 		$this->load->view('quanly_admin.php');
 		
 	}
+	function showquanlyuser()
+	{
+		$dl=$this->admin_model->getdulieuuser();
+		$dl = [
+		    'dluser' =>$dl 
+		];
+		$this->load->view('quanly_user',$dl,FALSE);
+
+	}
+	function blockuser($id)
+	{
+		$dl=$this->admin_model->getblockuser($id);
+		if ($dl) {
+		$this->load->view('xacnhankhoataikhoan');			
+		}
+	}
+	function unblockuser($id)
+	{
+		$dl=$this->admin_model->getunblockuser($id);
+		if ($dl) {
+		$this->load->view('xacnhankhoataikhoan');			
+		}
+	}
 	function luuthaydoiadmin()
 	{
 		$id=$this->input->post('id');
@@ -95,6 +118,26 @@ class Admin extends CI_Controller {
 			$this->load->view('success_taikhoan');
 		}
 			
+	}
+	function takepass()
+	{
+
+		$this->load->view('takepassadmin');
+		
+	}
+	function takepassadmin()
+	{
+		$email = $this->input->post('email');
+    $findemail = $this->admin_model->ForgotPassword($email);
+    if ($findemail) {
+        $this->admin_model->sendpassword($findemail);
+    } else {
+        
+    $data = array(
+    'error_message' => 'Email không tồn tại!'
+    );
+    $this->load->view('takepassadmin', $data);
+    }
 	}
 
 

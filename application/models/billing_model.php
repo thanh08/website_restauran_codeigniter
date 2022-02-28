@@ -55,7 +55,8 @@ class billing_model extends CI_Model {
 		$this->db->select('*,transaction.id');
 		$this->db->from('transaction');
 		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
-		$this->db->where('user_id', $id);
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+		$this->db->where('transaction.user_id', $id);
 		$this->db->where('payment_info','COD');
 		$this->db->or_where('payment_info','Credit Card');
 		$this->db->order_by("ngaydat", "DESC");
@@ -69,7 +70,12 @@ class billing_model extends CI_Model {
 		$this->db->select('*,transaction.id');
 		$this->db->from('transaction');
 		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+<<<<<<< HEAD
 		$this->db->where('user_id', $id);
+=======
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+		$this->db->where('transaction.user_id', $id);
+>>>>>>> 7d99a79... new update
 		$this->db->where('payment_info','COD');
 		$this->db->or_where('payment_info','Credit Card');
 		$this->db->order_by("ngaydat", "DESC");
@@ -84,16 +90,26 @@ class billing_model extends CI_Model {
 		$this->db->select('*,transaction.id');
 		$this->db->from('transaction');
 		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+<<<<<<< HEAD
+=======
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+
+>>>>>>> 7d99a79... new update
 		// $this->db->where('payment_info','COD');
 		// $this->db->or_where('payment_info','Credit Card');
 		// $w = "user_id='$id' AND status='0'";
 		// $this->db->where($w);
 		//$this->db->where('user_id', $id);
 		//$this->db->where('status', 0);
+<<<<<<< HEAD
 		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (user_id='" . $id . "')   AND (status='0')  ";
         $this->db->where($wherecond);
 		
 
+=======
+		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (transaction.user_id='" . $id . "')   AND (status='0')  ";
+        $this->db->where($wherecond);
+>>>>>>> 7d99a79... new update
 		$this->db->order_by("ngaydat", "DESC");
 		$dulieu=$this->db->get();
 		$dulieu=$dulieu->result_array();
@@ -105,10 +121,19 @@ class billing_model extends CI_Model {
 		$this->db->select('*,transaction.id');
 		$this->db->from('transaction');
 		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+<<<<<<< HEAD
 		// $this->db->where('payment_info','COD');
 		// $this->db->or_where('payment_info','Credit Card');
 		// $w = "user_id='$id' AND status='1'";
 		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (user_id='" . $id . "')   AND (status='1')  ";
+=======
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+
+		// $this->db->where('payment_info','COD');
+		// $this->db->or_where('payment_info','Credit Card');
+		// $w = "user_id='$id' AND status='1'";
+		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (transaction.user_id='" . $id . "')   AND (status='1')  ";
+>>>>>>> 7d99a79... new update
         $this->db->where($wherecond);
 		//$this->db->where($w);
 		
@@ -127,10 +152,19 @@ class billing_model extends CI_Model {
 		$this->db->select('*,transaction.id');
 		$this->db->from('transaction');
 		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+<<<<<<< HEAD
 		//$this->db->where('user_id', $id);
 		// $this->db->where('payment_info','COD');
 		// $this->db->or_where('payment_info','Credit Card');
 		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (user_id='" . $id . "') ";
+=======
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+
+		//$this->db->where('user_id', $id);
+		// $this->db->where('payment_info','COD');
+		// $this->db->or_where('payment_info','Credit Card');
+		$wherecond = " ( payment_info ='COD' OR payment_info='Credit Card') AND (transaction.user_id='" . $id . "') ";
+>>>>>>> 7d99a79... new update
         $this->db->where($wherecond);
 
 
@@ -148,14 +182,84 @@ class billing_model extends CI_Model {
 	}
 	function getdulieugiaodich1($id)
 	{
-		$this->db->select('*,transaction.id,transaction.ngaydat as ngaydattransaction ');
+		$this->db->select('*,transaction.id,transaction.ngaydat as ngaydattransaction,ratting.transaction_id ');
 		$this->db->from('transaction');
 		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
 		$this->db->join('table_book', 'transaction.id = table_book.transaction_id', 'left');
 
-		$this->db->where('user_id', $id);
+		$this->db->where('transaction.user_id', $id);
 		$this->db->where('payment_info','Thanh toán tại bàn');
 		$this->db->order_by("transaction.ngaydat", "DESC");
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
+	function getdulieugiaodich15day($id)
+	{
+		$this->db->select('*,transaction.id,transaction.ngaydat as ngaydattransaction,ratting.transaction_id ');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+		$this->db->join('table_book', 'transaction.id = table_book.transaction_id', 'left');
+
+		$this->db->where('transaction.user_id', $id);
+		$this->db->where('payment_info','Thanh toán tại bàn');
+		$this->db->order_by("transaction.ngaydat", "DESC");
+		$this->db->limit(5);
+
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
+	function getdulieugiaodich1huy($id)
+	{
+		$this->db->select('*,transaction.id,transaction.ngaydat as ngaydattransaction,ratting.transaction_id ');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+		$this->db->join('table_book', 'transaction.id = table_book.transaction_id', 'left');
+		$wherecond = " ( payment_info ='Thanh toán tại nhà') AND (transaction.user_id='" . $id . "')   AND (status='0')  ";
+        $this->db->where($wherecond);
+		$this->db->order_by("transaction.ngaydat", "DESC");
+
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
+	function getdulieugiaodich1hoanthanh($id)
+	{
+		$this->db->select('*,transaction.id,transaction.ngaydat as ngaydattransaction,ratting.transaction_id ');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+		$this->db->join('table_book', 'transaction.id = table_book.transaction_id', 'left');
+		$wherecond = " ( payment_info ='Thanh toán tại nhà') AND (transaction.user_id='" . $id . "')   AND (status='1')  ";
+        $this->db->where($wherecond);
+		$this->db->order_by("transaction.ngaydat", "DESC");
+
+		$dulieu=$this->db->get();
+		$dulieu=$dulieu->result_array();
+		return $dulieu;
+		
+	}
+	function getdulieugiaodich11thang($id)
+	{
+		$this->db->select('*,transaction.id,transaction.ngaydat as ngaydattransaction,ratting.transaction_id ');
+		$this->db->from('transaction');
+		$this->db->join('user_login', 'transaction.user_id = user_login.id', 'left');
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'left');
+		$this->db->join('table_book', 'transaction.id = table_book.transaction_id', 'left');
+		$wherecond = " ( payment_info ='Thanh toán tại nhà') AND (transaction.user_id='" . $id . "')  ";
+        $this->db->where($wherecond);
+        $d=strtotime("first day of this month");
+		$d1=strtotime("last day of this month");
+		$this->db->where("ngaydat BETWEEN '$d' AND '$d1'" );
+		$this->db->order_by("transaction.ngaydat", "DESC");
+
 		$dulieu=$this->db->get();
 		$dulieu=$dulieu->result_array();
 		return $dulieu;
@@ -249,8 +353,8 @@ class billing_model extends CI_Model {
 		$this->db->select('sum(total) as doanhthunam');
 		$this->db->from('transaction');
 		$this->db->where('status', 1);
-		$d=strtotime("first day of previous year");
-		$d1=strtotime("last year December 31st");
+		$d=strtotime("first day of this year");
+		$d1=strtotime("last day of this year");
 		$this->db->where("ngaydat BETWEEN '$d' AND '$d1'" );
 		$dl=$this->db->get();
 		$dl=$dl->result_array();

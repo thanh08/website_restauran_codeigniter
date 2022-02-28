@@ -21,54 +21,11 @@ header("location: http://localhost/006/user_authentication/user_login_process");
 	<!-- topheader -->
   <?php include('header.php') ?>
    <!-- end topheader -->
-<?php
-if (isset($logout_message)) {
-echo "<div class='message'>";
-echo $logout_message;
-echo "</div>";
-}
-?>
-<?php
-if (isset($message_display)) {
-echo "<div class='message'>";
-echo $message_display;
-echo "</div>";
-}
-?>
 <div class="container">
 	<div class="row">
 <div class="col-sm-8 offset-sm-2" style="height: 500px;">
   <h3 class="text-sm-center" style="padding-top: 100px; padding-bottom: 20px;">Lấy lại mật khẩu</h3>
 		
-	
-<!-- <div id="main">
-<div id="login">
-<h2>Đăng nhập</h2>
-<hr/>
-<?php echo form_open('../user_authentication/user_login_process'); ?>
-<?php
-echo "<div class='error_msg'>";
-if (isset($error_message)) {
-echo $error_message;
-}
-echo validation_errors();
-echo "</div>";
-?>
-<label>Tài khoản :</label>
-<input type="text" name="username" id="name" placeholder="username"/><br /><br />
-<label>Mật khẩu :</label>
-<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
-<input type="submit" value=" Đăng nhập " name="submit"/><br />
-<a href="<?php echo base_url() ?>user_authentication/user_registration_show">Đăng kí tại đây</a>
-<?php echo form_close(); ?>
-<a href="<?php echo base_url() ?>user_authentication/takepass">Lấy lại mật khẩu tại đây</a>
-<?php echo form_close(); ?>
-</div>
-</div>
-</div>
-	</div>
-</div> -->
-
 <form id="resetPassword" name="resetPassword" method="post" action="<?php echo base_url();?>user_authentication/ForgotPassword" onsubmit ='return validate()'>
   <?php
 echo "<div class='error_msg'>";
@@ -90,7 +47,9 @@ echo "</div>";
 
                         </tbody>               
 
-                      </table></form>
+                      </table>
+
+                  </form>
                       </div>
                     </div>
                           

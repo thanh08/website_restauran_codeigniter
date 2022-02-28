@@ -26,9 +26,6 @@
           }
           
     </script>
-
-
-
   </head>
   <body>
    <!-- topheader -->
@@ -110,7 +107,31 @@
           </div>
         </form> -->
         <hr class="mb-4">
-        <button class="btn btn-warning btn-lg btn-block"><a style="text-decoration: none; color: #333" href="<?php echo base_url(); ?>Cart/checkout">Tiếp tục thanh toán</a></button>
+        <?php
+if (isset($this->session->userdata['logged_in'])) {?>
+<?php $username = ($this->session->userdata['logged_in']['username']);
+ ?>
+ <?php $email = ($this->session->userdata['logged_in']['email']);
+ ?>
+ <?php $phone = ($this->session->userdata['logged_in']['phone']);
+ ?>
+ <?php $id = ($this->session->userdata['logged_in']['id']);
+ ?>
+  <?php $address = ($this->session->userdata['logged_in']['address']);
+ ?>
+
+<?php
+} else {
+//header("location: login");
+
+}
+?>
+          <?php if (isset($id)) {?>
+            <button class="btn btn-warning btn-lg btn-block"><a style="text-decoration: none; color: #333" href="<?php echo base_url(); ?>Cart/checkout">Tiếp tục thanh toán</a></button>
+          <?php } else { ?>
+            <button class="btn btn-warning btn-lg btn-block"><a style="text-decoration: none; color: #333" href="<?php echo base_url(); ?>user_authentication">Đăng nhập để thanh toán</a></button>
+          <?php } ?>
+        
       </div>
       
 

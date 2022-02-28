@@ -31,3 +31,6 @@ li.nav-item ul li a {
     color: #fff;
     font-size: 15px;
 }
+a{
+    text-decoration: none;
+}

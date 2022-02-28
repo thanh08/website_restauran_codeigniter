@@ -294,7 +294,11 @@ class Home extends CI_Controller {
 
         }
         else{
+<<<<<<< HEAD
         	        $data["results"] = $this->pagination_model->fetch_data($config["per_page"],$page);
+=======
+        	$data["results"] = $this->pagination_model->fetch_data($config["per_page"],$page);
+>>>>>>> 7d99a79... new update
 
         }
         // echo "<pre>";
@@ -332,7 +336,43 @@ class Home extends CI_Controller {
         else{
         $page = 1;
         }
-        $data["results"] = $this->pagination_model->fetch_data1($config["per_page"],$page);
+
+        $dl=$this->input->post('luachon1');
+
+        if ($dl=='5don') {
+            //echo '5don';
+    
+        	        $data["results"] = $this->pagination_model->fetch_data15day(5,$page);
+        	        // echo "<pre>";
+        	        // print_r ($data["results"]);
+        	        // echo "</pre>";
+
+        }elseif ($dl=='1thang') {
+                	$data["results"] = $this->pagination_model->fetch_data11thang();
+        	        // echo "<pre>";
+        	        // print_r ($data["results"]);
+        	        // echo "</pre>";
+
+        }elseif ($dl=='huy') {
+               		$data["results"] = $this->pagination_model->fetch_data1huy();
+        	        // echo "<pre>";
+        	        // var_dump ($data["results"]);
+        	        // echo "</pre>";
+
+        }
+        elseif ($dl=='hoanthanh') {
+        	        //echo 'hoan thanh';
+               	 	$data["results"] = $this->pagination_model->fetch_data1hoanthanh();
+        	        // echo "<pre>";
+        	        // print_r ($data["results"]);
+        	        // echo "</pre>";
+
+        }
+        else{
+        	 $data["results"] = $this->pagination_model->fetch_data1($config["per_page"],$page);
+
+        }
+
         // echo "<pre>";
         // var_dump($data["results"]);
         // echo "</pre>";

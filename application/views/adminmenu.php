@@ -45,7 +45,11 @@
         <a class="nav-link" href="#">Quản lý tài khoản</a>
         <ul>
           <li><a href="<?php echo base_url(); ?>admin/showadmin">Tài khoản quản trị</a></li>
+<<<<<<< HEAD
           <li><a href="#">Tài khoản khách hàng</a></li>
+=======
+          <li><a href="<?php echo base_url(); ?>admin/showquanlyuser">Tài khoản khách hàng</a></li>
+>>>>>>> 7d99a79... new update
 
         </ul>
       </li>

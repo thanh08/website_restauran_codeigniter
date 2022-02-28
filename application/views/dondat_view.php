@@ -110,7 +110,10 @@ background:-moz-linear-gradient(top, #B4F6FF 1px, #63D0FE 1px, #feb72e);
           </select>
         </div>
           <button type="submit" class="btn btn-primary ml-2 ">Lọc</button>
+<<<<<<< HEAD
         
+=======
+>>>>>>> 7d99a79... new update
       </form>
     </div>
 		</div>

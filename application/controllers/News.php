@@ -286,15 +286,15 @@ class News extends CI_Controller {
 		$dulieucuadanhmuc=$this->danhmuc_model->getdanhmuc();
 		$dulieu1 =$this->updatesline_model->getdulieuheader();
         $dulieuheader=json_decode($dulieu1,true);
-
+        $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
 
 
 		$dulieu = [
 		    'dulieuloadnews' => $dulieu,
 		    'dulieusotrang' =>$dulieutrang,
 		    'dulieucuadanhmuc' =>$dulieucuadanhmuc,
-		    'dulieuheader'=>$dulieuheader
-
+		    'dulieuheader'=>$dulieuheader,
+		    'dulieunewstrangchu' => $dulieutintuctrangchu
 
 		];
 		$this->load->view('blognews', $dulieu, FALSE);
@@ -314,7 +314,11 @@ class News extends CI_Controller {
 		$dulieucuadanhmuc=$this->danhmuc_model->getdanhmuc();
 		$dulieu1 =$this->updatesline_model->getdulieuheader();
         $dulieuheader=json_decode($dulieu1,true);
+<<<<<<< HEAD
         	  $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
+=======
+        $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
+>>>>>>> 7d99a79... new update
 
 
 		// echo "<pre>";
@@ -327,6 +331,10 @@ class News extends CI_Controller {
 		    'dulieuheader'=>$dulieuheader,
 		    'dulieunewstrangchu' => $dulieutintuctrangchu
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d99a79... new update
 		];
 		$this->load->view('blogsingle', $dulieu, FALSE);
 	}

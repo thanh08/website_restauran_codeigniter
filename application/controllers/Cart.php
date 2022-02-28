@@ -274,7 +274,8 @@ class Cart extends CI_Controller {
      
         ]);
             
-        $this->session->set_flashdata('success', 'Payment made successfully.');
+        //$this->session->set_flashdata('success', 'Payment made successfully.');
+        echo 'Thanh toán thành công';
              
         redirect('../home', 'refresh');
     }

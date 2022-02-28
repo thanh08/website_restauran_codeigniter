@@ -105,7 +105,9 @@ $data = array(
 'password' => $this->input->post('password')
 );
 $result = $this->login_database->login($data);
-if ($result == TRUE) {
+$resultstatus = $this->login_database->loginstatus($data);
+
+if ($result == TRUE && $resultstatus == TRUE) {
 
 $username = $this->input->post('username');
 $result = $this->login_database->read_user_information($username);
@@ -122,11 +124,22 @@ $session_data = array(
 $this->session->set_userdata('logged_in', $session_data);
 redirect('../home','refresh');
 }
+
 } 
 
-else
+elseif ($result == TRUE && $resultstatus == FALSE) {
 
- {
+    $dulieu1 =$this->updatesline_model->getdulieuheader();
+    $dulieuheader=json_decode($dulieu1,true);
+    $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
+    $data = array(
+    'error_message' => 'Tài khoản đã bị khóa!',
+    'dulieuheader' => $dulieuheader,
+    'dulieunewstrangchu' => $dulieutintuctrangchu
+    );
+    $this->load->view('login_form', $data);
+}
+else{
     $dulieu1 =$this->updatesline_model->getdulieuheader();
     $dulieuheader=json_decode($dulieu1,true);
     $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
@@ -191,11 +204,58 @@ function xemuser()
         }
         else{
             $dl=$this->billing_model->getdulieugiaodich($id);
+<<<<<<< HEAD
+=======
+            // echo "<pre>";
+            // var_dump ($dl);
+            // echo "</pre>";
+>>>>>>> 7d99a79... new update
 
         }
     $dl1=$this->login_database->getuser($id);
+    $dl4=$this->input->post('luachon1');
+    if ($dl4 == '5don1') {
+        echo '5don';
+        $dl2=$this->billing_model->getdulieugiaodich15day($id);
+
+    }elseif ($dl4 == 'huy1') {
+        echo 'huy1';
+        $dl2=$this->billing_model->getdulieugiaodich1huy($id);
+                // echo 'huy';
+                // echo "<pre>";
+                // var_dump ($dl);
+                // echo "</pre>";
+
+        }
+        elseif ($dl4 == 'hoanthanh1') {
+        echo 'hoanthanh';
+        $dl2=$this->billing_model->getdulieugiaodich1hoanthanh($id);
+                // echo 'huy';
+                // echo "<pre>";
+                // var_dump ($dl);
+                // echo "</pre>";
+
+        }
+        elseif ($dl4 == '1thang') {
+        echo '1thang';
+        $dl2=$this->billing_model->getdulieugiaodich11thang($id);
+                // echo 'huy';
+                // echo "<pre>";
+                // var_dump ($dl);
+                // echo "</pre>";
+
+        }
+    else{
     $dl2=$this->billing_model->getdulieugiaodich1($id);
 
+<<<<<<< HEAD
+=======
+    }
+    // echo "<pre>";
+    // var_dump ($dl2);
+    // echo "</pre>";
+
+>>>>>>> 7d99a79... new update
             $dulieu = [
                 'dulieuheader' => $dulieuheader,
                 'dulieunewstrangchu' => $dulieutintuctrangchu,
@@ -239,15 +299,27 @@ function xemuser()
     $id = ($this->session->userdata['logged_in']['id']);
     }
         $s=$this->input->post('rating');
+<<<<<<< HEAD
         $noidung=htmlspecialchars($this->input->post('comment'));
         $dl = [
             'user_id' =>$id,
+=======
+        $idgiaodich=$this->input->post('idgiaodich');
+        $noidung=htmlspecialchars($this->input->post('comment'));
+        $dl = [
+            'user_id' =>$id,
+            'transaction_id' =>$idgiaodich,
+>>>>>>> 7d99a79... new update
             'ratting' =>$s,
             'comment' =>$noidung 
         ];
        $dl =$this->product_model->danhgiasp($dl);
        if ($dl) {
+<<<<<<< HEAD
            echo 'thanhcong';
+=======
+           echo 'Bạn đã đánh giá thành công!';
+>>>>>>> 7d99a79... new update
            redirect('../user_authentication/xemuser', 'refresh');
        }
         
@@ -275,15 +347,12 @@ function takepass()
      $dulieu1 =$this->updatesline_model->getdulieuheader();
     $dulieuheader=json_decode($dulieu1,true);
     $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
-
-
-
-        $dulieu = [
+    $dulieu = [
             'dulieuheader' => $dulieuheader,
             'dulieunewstrangchu' => $dulieutintuctrangchu
             
         ];
-$this->load->view('takepass',$dulieu,FALSE);
+    $this->load->view('takepass',$dulieu,FALSE);
     
 }
 
@@ -300,7 +369,7 @@ $this->load->view('takepass',$dulieu,FALSE);
     $dulieuheader=json_decode($dulieu1,true);
     $dulieutintuctrangchu=$this->danhmuc_model->laytintucloadtrangchu();
     $data = array(
-    'error_message' => 'Tài khoản hoặc mật khẩu không đúng!',
+    'error_message' => 'Email không tồn tại!',
     'dulieuheader' => $dulieuheader,
     'dulieunewstrangchu' => $dulieutintuctrangchu
     );

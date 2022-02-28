@@ -43,11 +43,24 @@ class product_model extends CI_Model {
 		return $dl;
 
 	}
+<<<<<<< HEAD
 	function laydulieudanhgia()
 	{
 		$this->db->select('*');
 		$this->db->from('ratting');
 		$this->db->join('user_login', 'user_login.id = ratting.user_id', 'inner');
+=======
+	function laydulieudanhgia($id)
+	{
+		$this->db->select('user_login.user_name,ratting.comment');
+		$this->db->from('order_product');
+		$this->db->join('product', 'product.id = order_product.product_id', 'inner');
+		$this->db->join('transaction', 'transaction.id = order_product.transaction_id', 'inner');
+		$this->db->join('ratting', 'ratting.transaction_id = transaction.id', 'inner');
+		$this->db->join('user_login', 'user_login.id = ratting.user_id', 'inner');
+		$this->db->where('order_product.product_id', $id);
+
+>>>>>>> 7d99a79... new update
 
 		$dl=$this->db->get();
 		$dl=$dl->result_array();
@@ -220,6 +233,8 @@ class product_model extends CI_Model {
 		//$this->db->join('danhmucnews', 'danhmucnews.id = news.iddanhmuc', 'left');
 		//$this->db->where('news.iddanhmuc', $iddanhmuc);
 		$this->db->where('product.id !=', $id);
+		$this->db->order_by('rand()');
+
 		$dulieu=$this->db->get('', 2, 0);
 		$dulieu = $dulieu ->result_array();
 		// echo "<pre>";

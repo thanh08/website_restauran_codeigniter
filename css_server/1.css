@@ -123,4 +123,7 @@ input[type="number"] {
     border-radius: 7px;
 }
 .hidetext { -webkit-text-security: disc; /* Default */ }
+a{
+    text-decoration: none;
+}
 

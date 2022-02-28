@@ -98,6 +98,20 @@ background:-moz-linear-gradient(top, #B4F6FF 1px, #63D0FE 1px, #feb72e);
 			<div class="col-sm-12 text-sm-center ">
 				<h3>Thông tin khách đặt tại nhà hàng</h3>
 			</div>
+			<div class="ml-3">    
+       <form method="POST" class="d-flex" action="<?php echo base_url(); ?>home/don_info1" enctype="multipart/form-data" >
+        <div class="form-group">
+          <select class="form-control" name="luachon1" id="">
+            <option value="" selected="selected">Tất cả</option>
+            <option value="5don" <?php echo set_select('luachon1','5don'); ?>>5 đơn hàng gần đây</option>
+            <option value="1thang" <?php echo set_select('luachon1','1thang'); ?> >1 tháng gần đây</option>
+            <option value="huy" <?php echo set_select('luachon1','huy'); ?> >Đơn hàng hủy</option>
+            <option value="hoanthanh" <?php echo set_select('luachon1','hoanthanh'); ?> >Đơn hàng hoàn thành</option>
+          </select>
+        </div>
+          <button type="submit" class="btn btn-primary ml-2 ">Lọc</button>
+      </form>
+    </div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12 col-12">
@@ -181,15 +195,11 @@ background:-moz-linear-gradient(top, #B4F6FF 1px, #63D0FE 1px, #feb72e);
             <span>Tổng tiền</span>
             <strong><?= $value['total'] ?> VND</strong>
           </li>
-		
-	</div>	
+        </div>	
     		
     	</td>
   	
   	</tr>
-
-      
-      
     </tr>
     </tbody>
 
